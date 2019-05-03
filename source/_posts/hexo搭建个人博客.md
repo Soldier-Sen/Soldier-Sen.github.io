@@ -1,15 +1,17 @@
 ---
-title: 初尝hexo搭建个人博客
+title: Hexo搭建个人博客
 date: 2019-05-03 15:40:36
-tags:
+tags: [hexo,git,ssh]
+categories: 前端,工具,环境搭建,学习
+toc: true
 ---
 
-一直有写个人博客的想法，拖拖拉拉终于到今天开始实施，hexo + git 搭建了个人博客，欢迎来访：[微醺的个人博客](https://soldier-sen.github.io/archives/)
+一直有写个人博客的想法，拖拖拉拉终于到今天开始实施，hexo + git 搭建了个人博客，欢迎来访：[微醺的个人博客](https://soldier-sen.github.io/)
 
-本人没有购买域名和服务器，仅使用github page平台托管自己的博客，这里可以安心写东西，不容费时间经理维护一个网站，hexo作为一个快速简洁的博客框架，用它来搭建博客还是非常容易的。
-
+本人没有购买域名和服务器，仅使用github page平台托管自己的博客，这里可以安心写东西，不容费时间精力维护一个网站，hexo作为一个快速简洁的博客框架，用它来搭建博客还是非常容易的。
+<!-- more -->
 # 原由
-    市面上各种博客平台很成熟，但是容易受各种限制以及诸多广告引起不适，觉得自己搭建个人博客。
+    市面上各种博客平台很成熟，但是容易受各种限制以及诸多广告引起不适，决定自己搭建个人博客。
     第一次使用hexo + git搭建个人博客，做些笔记，以备年久忘记！
 
 # Hexo简介
@@ -59,6 +61,7 @@ hexo搭建还有部署到github上， 我使用的是ubunut系统，安装以ubu
 
 >   hexo g
 >   hexo s
+
 在浏览器输入localhost:4000就可以看到自己生成的博客了。
 
 ### 4.github创建个人仓库
@@ -132,8 +135,6 @@ Front-matter 是文件最上方以 --------- 分隔的区域， 用于制定个�
 | commets        | 开启文章的评论功能 |
 | tags           | 标签\(不适用于分页\) |
 | categories     | 分类\(不适用于分页\) |
-| permalink      | 覆盖文章网址        |
-
 
 # 删除文章
 1.先删除本地文件
@@ -154,3 +155,80 @@ hexo 添加各种功能，包括搜索的SEO、阅读量统计、访问量统计
 5._config.yml文件，是主目录的配置，
 6.db.json，没有仔细研究，后面再更新这部分内容。
 7.package.json，没有研究。
+
+
+
+# Hexo 更换主题
+[theme官网](https://hexo.io/themes/)有很多主题可供选择，可以点击预览、github地址查看效果后选择合适的安装。
+## 下载主题
+NexT主题[入门](http://theme-next.iissnan.com/getting-started.html)
+    cd blog;
+    git clone https://github.com/iissnan/hexo-theme-next themes/next
+## 启用主题
+于所有Hexo 主题启用的模式一样。克隆/下载完毕后，打开[站点配置文件_config.yml], 找到theme字段，将其值改为next。
+`heme: next`
+主题使用的样式：
+`scheme: Gemini`
+
+## 设置菜单
+    menu:
+    home: / || home
+    about: /about/ || user
+    tags: /tags/ || tags
+    categories: /categories/ || th
+    archives: /archives/ || archive
+    schedule: /schedule/ || calendar
+    sitemap: /sitemap.xml || sitemap
+## 设置菜单显示文本
+    编辑[站点配置文件]， 设置地段language: zh-Hans ,可以显示中文。
+## 处理菜单的点击跳转
+按照上面的方式设置的菜单之后，点击标签，分类，或者关于我都会出现 404 页面，意思就是没有找到对应的页面。这个是因为source目录只有_posts文件夹，并没有生成对应的tags、categories、about等文件夹导致。
+### 生成菜单文件夹
+* 生成 tags 标签页
+>hexo new page tags
+* 生成 about 标签页
+>hexo new page about
+* 生成 categories 标签页
+>hexo new page categories
+* 生成 schedule 标签页
+>hexo new page schedule
+* 生成 sitemap 标签页
+>hexo new page sitemap
+
+在重新部署一下就不会出现404问题了
+### 在生成菜单文件夹的index.md 中增加 type 属性
+此时如果重新发布网站之后，页面不会报错，但是还不能自动检索文章，需要在刚才生成的文件夹中的 index.md 中增加对应的 type 属性。
+    title: about
+    date: 2019-05-03 23:34:44
+    type: "about"
+    comments: false
+### 在文章中加入 tags 和 categories 属性
+    ---
+    title: 初尝hexo搭建个人博客
+    date: 2019-05-03 15:40:36
+    tags: [hexo,git,ssh]
+    categories: 前端,工具,环境搭建
+    toc: true
+    ---
+### 设置代码高亮主题
+next 默认使用normal，还有其他可供选择night | night eighties | night blue | night bright
+更改[主题配置文件] highlight_theme 字段，将其值设定成你所喜爱的高亮主题即可。
+
+### 侧边栏社交链接
+侧栏社交链接的修改包含两个部分，第一是链接，第二是链接图标。 两者配置均在 主题配置文件 中。
+1.链接放置在 social 字段下，一行一个链接。其键值格式是 显示文本: 链接地址。
+>   social:
+        GitHub: https://github.com/user-name || github
+        Google: https://www.google.com || google
+### 设置「动画效果」
+    motion:
+        enable: true  开启动画效果
+### 设置「背景动画」
+编辑 主题配置文件， 搜索 canvas_nest 或 three_waves，根据您的需求设置值为 true 或者 false 即可。只能同时开启一种背景动画效果。
+
+### Hexo博客首页显示摘要
+    在文章内容中插入一行:   `<!-- more -->`  即可只显示此命令之上的内容，起到显示摘要作用。
+
+[Ada主题](https://github.com/shuiRong/hexo-theme-Ada)例子：
+    `git clone https://github.com/shuiRong/hexo-theme-Ada.git themes/Ada`
+    `修改hexo/_config.yml 的 theme: Ada`

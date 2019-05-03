@@ -4,13 +4,24 @@
 
 # Site
 title: 微醺的博客
-subtitle:
-description: 科技浪潮中的一个小兵
-keywords:
+archives: 归档
+category: 分类
+tag: 标签
+schedule: 日程表
 author: 微醺
-language:
+description: 科技浪潮中的一个小兵
+sidebar: 
+  overview: 站点概览
+  toc: 文章目录
+
+subtitle:
+
+keywords:
+
+language: zh-Hans
 categories: 
 timezone: UTC
+
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'

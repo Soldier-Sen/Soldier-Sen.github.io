@@ -1,10 +1,13 @@
 ---
 title: Markdown笔记
 date: 2019-05-03 00:15:05
-tags:
+tags: [Markdown]
+categories: 学习
 ---
+[点击跳转至百度](http://www.baidu.com)
+[点击跳转到我的github](https://github.com/Soldier-Sen)
+<!--more-->
 @[TOC](这里写自定义目录标题)
-
 # h1
 ## h2
 ### h3
@@ -17,8 +20,10 @@ tags:
 ---
 >这段文字将被高亮显示
 
-[点击跳转到我的github](https://github.com/Soldier-Sen)
-[点击跳转至百度](http://www.baidu.com)
+<!--more-->
+
+
+
 ![图片](https://upload-images.jianshu.io/upload_images/703764-605e3cc2ecb664f6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## 列表
