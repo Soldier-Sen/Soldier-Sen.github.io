@@ -3,20 +3,21 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 小兵博客
+title: 微醺的博客
 subtitle:
 description: 科技浪潮中的一个小兵
 keywords:
-author: 小兵
+author: 微醺
 language:
-timezone:
+categories: 
+timezone: UTC
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://yoursite.com
 root: /
 permalink: :year/:month/:day/:title/
-permalink_defaults:
+permalink_defaults: hhs test
 
 # Directory
 source_dir: source
