@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="小兵博客" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="微醺的博客" type="application/atom+xml">
 
 
 
@@ -83,13 +83,13 @@
 
 <meta name="description" content="科技浪潮中的一个小兵">
 <meta property="og:type" content="website">
-<meta property="og:title" content="小兵博客">
+<meta property="og:title" content="微醺的博客">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="小兵博客">
+<meta property="og:site_name" content="微醺的博客">
 <meta property="og:description" content="科技浪潮中的一个小兵">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小兵博客">
+<meta name="twitter:title" content="微醺的博客">
 <meta name="twitter:description" content="科技浪潮中的一个小兵">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>小兵博客</title>
+  <title>微醺的博客</title>
   
 
 
@@ -157,7 +157,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">小兵博客</span>
+        <span class="site-title">微醺的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -237,13 +237,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/03/初尝hexo搭建个人博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="小兵">
+      <meta itemprop="name" content="微醺">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小兵博客">
+      <meta itemprop="name" content="微醺的博客">
     </span>
 
     
@@ -305,11 +305,171 @@
       
         
           
-            <p>一直有写个人博客的想法，拖拖拉拉终于到今天开始实施，hexo + git 搭建了个人博客，欢迎来访：<a href="soldier-sen.github.io">小兵的个人博客</a></p>
-<h1 id="原由"><a href="#原由" class="headerlink" title="原由"></a>原由</h1><pre><code>第一次使用hexo + git搭建个人博客，做些笔记，以备年久忘记！
-另，为了方便练习，部分内容为直接对着别人的博客内容敲，以便加深记忆。
-</code></pre><p>hexo new “博客名”， 产生一个新的的博客页。</p>
-<h1 id="删除文章"><a href="#删除文章" class="headerlink" title="删除文章"></a>删除文章</h1><p>1.先删除本地文件，<br>2.通过生成和部署命令进而将远程仓库中的文件也一起删除。</p>
+            <p>一直有写个人博客的想法，拖拖拉拉终于到今天开始实施，hexo + git 搭建了个人博客，欢迎来访：<a href="https://soldier-sen.github.io/archives/" target="_blank" rel="noopener">微醺的个人博客</a></p>
+<p>本人没有购买域名和服务器，仅使用github page平台托管自己的博客，这里可以安心写东西，不容费时间经理维护一个网站，hexo作为一个快速简洁的博客框架，用它来搭建博客还是非常容易的。</p>
+<h1 id="原由"><a href="#原由" class="headerlink" title="原由"></a>原由</h1><pre><code>市面上各种博客平台很成熟，但是容易受各种限制以及诸多广告引起不适，觉得自己搭建个人博客。
+第一次使用hexo + git搭建个人博客，做些笔记，以备年久忘记！
+</code></pre><h1 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a>Hexo简介</h1><p>Hexo 是一款基于Node.js的静态博客框架，依赖少、易于安装使用，可以方便的生成静态网页托管在GitHub和Coding上，是搭建博客的首选框架。大家可以进入<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo官网</a>进行详细查看，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。</p>
+<p>本教程分三部分：</p>
+<blockquote>
+<p>一、hexo搭建还有部署到github上。<br>二、hexo的基本配置、更换主题、实现多终端工作，以及在coding page部署实现国内外分流。<br>三、hexo添加各种功能，包括搜索的SEO、阅读量统计、访问量统计和评论系统。</p>
+</blockquote>
+<hr>
+<h1 id="一、hexo搭建和部署"><a href="#一、hexo搭建和部署" class="headerlink" title="一、hexo搭建和部署"></a>一、hexo搭建和部署</h1><p>hexo搭建还有部署到github上， 我使用的是ubunut系统，安装以ubuntu为讲。</p>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><pre><code>1.安装git
+2.安装node.js
+3.安装hexo
+4.github创建个人仓库
+5.生成ssh密钥并添加到github
+6.将hexo部署到github
+7.发布文章
+</code></pre><h3 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h3><pre><code>sudo apt-get install git
+git --version查看版本号，确认是否安装好。
+</code></pre><h3 id="2-安装node-js"><a href="#2-安装node-js" class="headerlink" title="2.安装node.js"></a>2.安装node.js</h3><pre><code>Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。
+sudo apt-get install nodejs
+sudo apt-get install npm
+安装完成分别使用 node -v 和 npm -v检查是否安装成功。
+</code></pre><h3 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h3><pre><code>mkdir blog                  创建一个blog文件夹
+npm install -g hexo-cli     安装hexo, 如果报权限问题，请加sudo。
+hexo -v                     查看版本号。
+</code></pre><p>到这里工具已经安装完毕。 初始化hexo:</p>
+<blockquote>
+<p>hexo init blog<br>cd blog ; npm install</p>
+</blockquote>
+<p>安装完成blog目录下有：</p>
+<blockquote>
+<p>   ├── _config.yml    博客的配置文件<br>    ├── db.json         不知<br>    ├── node_modules    依赖包<br>    ├── package.json    不知<br>    ├── public          存放生成的页面<br>    ├── scaffolds       生成文章的一些模板<br>    ├── source          用来存放自己的文章<br>    └── themes          主题</p>
+</blockquote>
+<blockquote>
+<p>  hexo g<br>  hexo s<br>在浏览器输入localhost:4000就可以看到自己生成的博客了。</p>
+</blockquote>
+<h3 id="4-github创建个人仓库"><a href="#4-github创建个人仓库" class="headerlink" title="4.github创建个人仓库"></a>4.github创建个人仓库</h3><p>注册github账号并登录， Repositories -&gt; new 创建一个个人仓库。仓库名：账户名.github.io，只有这样后面部署到github page的时候，才会被识别。也就是账户名.github.io。点击create repository。</p>
+<h3 id="5-生成ssh密钥并添加到github"><a href="#5-生成ssh密钥并添加到github" class="headerlink" title="5.生成ssh密钥并添加到github"></a>5.生成ssh密钥并添加到github</h3><blockquote>
+<p>  git config –global user.name “yourname”<br>    git config –global user.email “youremail”</p>
+</blockquote>
+<p>这里的yourname输入你的GitHub用户名，youremail输入你GitHub的邮箱。这样GitHub才能知道你是不是对应它的账户, 然后创建SSH,一路回车。</p>
+<blockquote>
+<p>  ssh-keygen -t rsa -C “youremail”<br>这个时候它会告诉你已经生成了.ssh的文件夹。把.ssh中id_rsa.pub内容拷贝出来， 而后在GitHub的setting中，找到SSH keys的设置选项，点击New SSH key把你的id_rsa.pub里面的信息复制进去。<br>  ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>       查看是否成功。</p>
+</blockquote>
+<h3 id="6-将hexo部署到GitHub"><a href="#6-将hexo部署到GitHub" class="headerlink" title="6. 将hexo部署到GitHub"></a>6. 将hexo部署到GitHub</h3><pre><code>deploy:
+type: git
+repo: git@github.com:xxxxx/xxxxx.github.io.git
+branch: master
+</code></pre><p>xxxxx是你的github账户名。这个时候需要先安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub。<br><code>npm install hexo-deployer-git --save</code><br>然后<br><code>hexo clean;</code><br>    <code>hexo generate;</code><br>    <code>hexo deploy</code><br>其中 hexo clean 清除你之前生成的东西,也可以不加。 hexo generate生成静态文章，也可以用hexo g缩写， hexo deploy 部署文章，hexo d为缩写。接下来在浏览器输入： <code>http://xxxxx.github.io</code> 就可以查看自己的博客了。</p>
+<h3 id="7-发布文章"><a href="#7-发布文章" class="headerlink" title="7.发布文章"></a>7.发布文章</h3><p><code>hexo new “新的博客文章名”</code><br>source/_post中打开markdown文件，就可以开始编辑了。当你写完的时候，再：<br><code>hexo g</code><br><code>hexo d</code><br>就可以看到更新了。</p>
+<h1 id="二、hexo配置"><a href="#二、hexo配置" class="headerlink" title="二、hexo配置"></a>二、hexo配置</h1><p>hexo的基本配置，更换主题，实现多终端工作，以及在coding page部署实现国内外分流。</p>
+<h2 id="hexo基本配置"><a href="#hexo基本配置" class="headerlink" title="hexo基本配置"></a>hexo基本配置</h2><p>在根目录下的_config.yml，就是整个hexo框架的配置文件。可以在里面修改大部分配置。详情可参考<a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">官方配置</a>描述。</p>
+<h4 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">titie</td>
+<td style="text-align:center">网站标题</td>
+</tr>
+<tr>
+<td style="text-align:center">subtitle</td>
+<td style="text-align:center">网站副标题</td>
+</tr>
+<tr>
+<td style="text-align:center">description</td>
+<td style="text-align:center">网站描述</td>
+</tr>
+<tr>
+<td style="text-align:center">author</td>
+<td style="text-align:center">作者</td>
+</tr>
+<tr>
+<td style="text-align:center">language</td>
+<td style="text-align:center">语言</td>
+</tr>
+<tr>
+<td style="text-align:center">timezone</td>
+<td style="text-align:center">网站时区，默认使用电脑的时区</td>
+</tr>
+</tbody>
+</table>
+<h4 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">url</td>
+<td style="text-align:center">网址</td>
+</tr>
+<tr>
+<td style="text-align:center">root</td>
+<td style="text-align:center">网址跟目录</td>
+</tr>
+<tr>
+<td style="text-align:center">permalink</td>
+<td style="text-align:center">文章的永久链接</td>
+</tr>
+<tr>
+<td style="text-align:center">permalink_defaults</td>
+<td style="text-align:center">永久链接中各部分的默认值</td>
+</tr>
+</tbody>
+</table>
+<p>在这路，需要把url改为你的网站域名（如果购买了域名的）。permalink, 也就是你生成某个文章时的那个链接格式。<br>比如我新建一个文章叫tmp.md, 那么这个时候它自动生成的地址就是： <a href="http://localhost:4000/2019/05/03/tmp.md" target="_blank" rel="noopener">http://localhost:4000/2019/05/03/tmp.md</a></p>
+<blockquote>
+<p>theme: next 选择的主题是next， 对应theme目录下的next文件夹。</p>
+</blockquote>
+<h3 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h3><p>Front-matter 是文件最上方以 ——— 分隔的区域， 用于制定个别文件的变量，如：</p>
+<blockquote>
+<p>title: Hello World<br>date: 2019-05-03 00:15:05</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">layout</td>
+<td style="text-align:center">局部</td>
+</tr>
+<tr>
+<td style="text-align:center">title</td>
+<td style="text-align:center">标题</td>
+</tr>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">建立日期</td>
+</tr>
+<tr>
+<td style="text-align:center">updated</td>
+<td style="text-align:center">更新日期</td>
+</tr>
+<tr>
+<td style="text-align:center">commets</td>
+<td style="text-align:center">开启文章的评论功能</td>
+</tr>
+<tr>
+<td style="text-align:center">tags</td>
+<td style="text-align:center">标签(不适用于分页)</td>
+</tr>
+<tr>
+<td style="text-align:center">categories</td>
+<td style="text-align:center">分类(不适用于分页)</td>
+</tr>
+<tr>
+<td style="text-align:center">permalink</td>
+<td style="text-align:center">覆盖文章网址</td>
+</tr>
+</tbody>
+</table>
+<h1 id="删除文章"><a href="#删除文章" class="headerlink" title="删除文章"></a>删除文章</h1><p>1.先删除本地文件<br>2.通过生成和部署命令进而将远程仓库中的文件也一起删除。</p>
 <blockquote>
 <p>以最开始的helloworld.md这篇文章为例：  进入到source/_post文件夹中，找到helloworld.md文件，在本地执行删除。然后一次执行hexo g 、hexo d，此时再去博客主页查看已经没有了。</p>
 </blockquote>
@@ -370,13 +530,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/03/Markdown笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="小兵">
+      <meta itemprop="name" content="微醺">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小兵博客">
+      <meta itemprop="name" content="微醺的博客">
     </span>
 
     
@@ -637,7 +797,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">小兵</p>
+              <p class="site-author-name" itemprop="name">微醺</p>
               <p class="site-description motion-element" itemprop="description">科技浪潮中的一个小兵</p>
           </div>
 
@@ -700,7 +860,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">小兵</span>
+  <span class="author" itemprop="copyrightHolder">微醺</span>
 
   
 </div>
