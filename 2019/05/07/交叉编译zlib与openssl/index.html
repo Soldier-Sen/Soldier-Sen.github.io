@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="rtmp,zlib,openssl,">
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="之所以交叉编译这两个库是因为librtmp依赖，所以进行交叉编译，在此做个记录。本次记录在x64和两个arm平台编译验证通过。 一、交叉编译zlib">
+<meta name="description" content="本文主要记录在编译rtmp时，依赖的两个库：zlib、openssl。本次记录在x64和两个arm平台编译验证通过。 一、交叉编译zlib">
+<meta name="keywords" content="rtmp,zlib,openssl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="交叉编译zlib与openssl">
 <meta property="og:url" content="http://yoursite.com/2019/05/07/交叉编译zlib与openssl/index.html">
 <meta property="og:site_name" content="微醺的博客">
-<meta property="og:description" content="之所以交叉编译这两个库是因为librtmp依赖，所以进行交叉编译，在此做个记录。本次记录在x64和两个arm平台编译验证通过。 一、交叉编译zlib">
+<meta property="og:description" content="本文主要记录在编译rtmp时，依赖的两个库：zlib、openssl。本次记录在x64和两个arm平台编译验证通过。 一、交叉编译zlib">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-06T11:06:34.635Z">
+<meta property="og:updated_time" content="2019-05-07T12:25:45.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="交叉编译zlib与openssl">
-<meta name="twitter:description" content="之所以交叉编译这两个库是因为librtmp依赖，所以进行交叉编译，在此做个记录。本次记录在x64和两个arm平台编译验证通过。 一、交叉编译zlib">
+<meta name="twitter:description" content="本文主要记录在编译rtmp时，依赖的两个库：zlib、openssl。本次记录在x64和两个arm平台编译验证通过。 一、交叉编译zlib">
 
 
 
@@ -324,6 +325,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/第三方库-交叉编译/" itemprop="url" rel="index">
+                    <span itemprop="name">第三方库,交叉编译</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -351,7 +374,7 @@
       
 
       
-        <p>之所以交叉编译这两个库是因为librtmp依赖，所以进行交叉编译，在此做个记录。<br>本次记录在x64和两个arm平台编译验证通过。</p>
+        <p>本文主要记录在编译rtmp时，依赖的两个库：zlib、openssl。本次记录在x64和两个arm平台编译验证通过。</p>
 <h1 id="一、交叉编译zlib"><a href="#一、交叉编译zlib" class="headerlink" title="一、交叉编译zlib"></a>一、交叉编译zlib</h1><a id="more"></a>
 <p>开发环境：ubuntu 18.04</p>
 <p>交叉编译工具：arm-xxx (多个平台验证通过)</p>
@@ -362,6 +385,11 @@
 <p>交叉编译工具：arm-xxx (多个平台验证通过)</p>
 <p>openssl源码下载：<a href="http://www.linuxfromscratch.org/blfs/view/8.0/postlfs/openssl.html" target="_blank" rel="noopener">http://www.linuxfromscratch.org/blfs/view/8.0/postlfs/openssl.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar xf openssl-1.0.2k.tar.gz</span><br><span class="line">cd openssl--1.0.2k</span><br><span class="line">CC=arm-xxxx-cc ./config --prefix=install no-asm</span><br><span class="line">vim Makefile；搜索-m64并删除, 否则编译不过</span><br><span class="line">make -j16 &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
 <p>–prefix  指定安装路径为install<br>no-asm    需要加上这个参数，否则编译不过。<br>make -j16 指定多核编译，加快编译速度，可不加直接make即可。</p>
+<h1 id="三、librtmp编译"><a href="#三、librtmp编译" class="headerlink" title="三、librtmp编译"></a>三、librtmp编译</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export C_INCLUDE_PATH=install/include</span><br><span class="line">将# CRYPTO=OPENSSL改为CRYPTO=install/bin (此为openssl编译后安装的bin路径)</span><br><span class="line">编译rtmp不通过，提示 对‘dlopen’未定义的引用时，加上-ldl</span><br></pre></td></tr></table></figure>
+<p>rtmp推流延时问题<br>    播放器端不要缓存即可非常实时，测试延时1-2秒。</p>
+<blockquote>
+<p>ffplay -fflags nobuffer rtmp://192.168.1.140:1935/live/test1</p>
+</blockquote>
 
       
     </div>
@@ -376,6 +404,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rtmp/" rel="tag"># rtmp</a>
+          
+            <a href="/tags/zlib/" rel="tag"># zlib</a>
+          
+            <a href="/tags/openssl/" rel="tag"># openssl</a>
+          
+        </div>
       
 
       
@@ -395,6 +433,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/08/Visual-studio-Code快捷键/" rel="prev" title="Visual studio Code快捷键">
+                Visual studio Code快捷键 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -471,7 +513,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -482,7 +524,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -493,7 +535,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -573,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、交叉编译zlib"><span class="nav-number">1.</span> <span class="nav-text">一、交叉编译zlib</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、交叉编译openssl"><span class="nav-number">2.</span> <span class="nav-text">二、交叉编译openssl</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、交叉编译zlib"><span class="nav-number">1.</span> <span class="nav-text">一、交叉编译zlib</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、交叉编译openssl"><span class="nav-number">2.</span> <span class="nav-text">二、交叉编译openssl</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、librtmp编译"><span class="nav-number">3.</span> <span class="nav-text">三、librtmp编译</span></a></li></ol></div>
             
 
           </div>
