@@ -284,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/14/vim实用小技巧/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/vim插件之vim-repeat/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="微醺">
@@ -303,7 +303,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/14/vim实用小技巧/" itemprop="url">vim使用小技巧</a></h1>
+                <a class="post-title-link" href="/2019/06/09/vim插件之vim-repeat/" itemprop="url">vim插件之vim-repeat</a></h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-14T00:10:23Z">
-                2019-05-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-09T15:41:11Z">
+                2019-06-09
               </time>
             
 
@@ -325,6 +325,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vim插件/" itemprop="url" rel="index">
+                    <span itemprop="name">vim插件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -355,8 +377,810 @@
       
         
           
+            <h1 id="vim-repeat"><a href="#vim-repeat" class="headerlink" title="vim-repeat"></a>vim-repeat</h1><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>重复一个插件的操作，支持surround.vim，通过surround操作之后的行为.号重复。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>通过Bundle安装，在.vimrc中添加：</p>
+<blockquote>
+<p>Bundle ‘tpope/vim-repeat’<br>然后BundleInstall安装即可。</p>
+</blockquote>
+<p>示例，与surround结合使用。<br>1)将如下”双引号都替换成’单引号<br>“hello”<br>“hello”<br>“hello”<br>“hello”<br>“hello”<br>2)执行： <code>cs&quot;&#39;</code><br>‘hello’<br>“hello”<br>“hello”<br>“hello”<br>“hello”<br>3)j.<br>‘hello’<br>‘hello’<br>“hello”<br>“hello”<br>“hello”<br>4)重复3)<br>‘hello’<br>‘hello’<br>‘hello’<br>‘hello’<br>‘hello’</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/vim插件之tags/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/09/vim插件之tags/" itemprop="url">vim插件之tags</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-09T14:37:25Z">
+                2019-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vim插件/" itemprop="url" rel="index">
+                    <span itemprop="name">vim插件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
             
           
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="ctags找不到pthreadx相关函数"><a href="#ctags找不到pthreadx相关函数" class="headerlink" title="ctags找不到pthreadx相关函数"></a>ctags找不到pthreadx相关函数</h2><p>在生成ctags时，要使用命令：</p>
+<blockquote>
+<p>sudo ctags  -I <strong>THROW  -I </strong>THROWNL -I <strong>attribute_pure</strong> -I <strong>nonnull -I </strong>attribute__ -R –c-kinds=+p –fields=+iaS –extra=+q –language-force=C  /usr/include/</p>
+</blockquote>
+<p>否则ctags会不认识这些宏从而识别不了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/vim文本对象介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/09/vim文本对象介绍/" itemprop="url">vim文本对象介绍</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-09T12:18:52Z">
+                2019-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vim文本对象/" itemprop="url" rel="index">
+                    <span itemprop="name">vim文本对象</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>vim的文本对象(text object)由两个字符组成，第一个字符永远是i或是a。一般说来，以i开头的文本对象会选择包括分隔符在内的整个文本。<br>为了便于记忆，可以把i想成”inside”，而把a想成”around/all”。vim的文本对象主要用于扩大选区，将它与可视模式或surround结合起来使用将变得异常强大。</p>
+<h3 id="一些常用的文本对象"><a href="#一些常用的文本对象" class="headerlink" title="一些常用的文本对象"></a>一些常用的文本对象</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">文本对象</th>
+<th style="text-align:center">选区区域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a)或ab</td>
+<td style="text-align:center">一对圆括号</td>
+</tr>
+<tr>
+<td style="text-align:center">i)或ib</td>
+<td style="text-align:center">圆括号内部</td>
+</tr>
+<tr>
+<td style="text-align:center">a}或aB</td>
+<td style="text-align:center">一对花括号</td>
+</tr>
+<tr>
+<td style="text-align:center">i)或iB</td>
+<td style="text-align:center">花括号内部</td>
+</tr>
+<tr>
+<td style="text-align:center">at</td>
+<td style="text-align:center">一对XML标签</td>
+</tr>
+<tr>
+<td style="text-align:center">it</td>
+<td style="text-align:center">XML标签内部</td>
+</tr>
+<tr>
+<td style="text-align:center">aw</td>
+<td style="text-align:center">当前单词及一个空格</td>
+</tr>
+<tr>
+<td style="text-align:center">iw</td>
+<td style="text-align:center">当前单词</td>
+</tr>
+<tr>
+<td style="text-align:center">aW</td>
+<td style="text-align:center">当前字串及一个空格</td>
+</tr>
+<tr>
+<td style="text-align:center">iW</td>
+<td style="text-align:center">当前字串</td>
+</tr>
+<tr>
+<td style="text-align:center">as</td>
+<td style="text-align:center">当前句子及一个空格</td>
+</tr>
+<tr>
+<td style="text-align:center">is</td>
+<td style="text-align:center">当前句子</td>
+</tr>
+<tr>
+<td style="text-align:center">ap</td>
+<td style="text-align:center">当前段落及一个空行</td>
+</tr>
+<tr>
+<td style="text-align:center">ip</td>
+<td style="text-align:center">当前段落</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/Vim插件之vim-surround/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/09/Vim插件之vim-surround/" itemprop="url">Vim插件之vim-surround</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-09T00:10:16Z">
+                2019-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vim插件/" itemprop="url" rel="index">
+                    <span itemprop="name">vim插件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="surround"><a href="#surround" class="headerlink" title="surround"></a>surround</h1><p>“vim-surround，tpope大神的一款life-changed插件.”<br>“直到发现了大牛Tim Pope的surround的插件，一切都迎刃而解了。（对的就是那个写了pathogen的家伙，他一个人就贡献了30多个vim插件，仰视之）”</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>项目的地址是：<a href="https://github.com/tpope/vim-surround" target="_blank" rel="noopener">https://github.com/tpope/vim-surround</a><br>如果采用Vundle安装的话，就需要在vim配置文件中添加：<br>Plugin ‘tpope/vim-surround’<br>再执行：PluginInstall 就好了。</p>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>快速给词加环绕符号,例如单引号/双引号/括号/成对标签等</p>
+<p>注意：(括号, 左括号会加空格, 右括号不会)</p>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 替换</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/vim插件之Abolish插件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/09/vim插件之Abolish插件/" itemprop="url">vim插件之Abolish</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-08T17:58:55Z">
+                2019-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vim插件/" itemprop="url" rel="index">
+                    <span itemprop="name">vim插件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="1-abolish-vim插件"><a href="#1-abolish-vim插件" class="headerlink" title="1.abolish.vim插件"></a>1.abolish.vim插件</h1><p>abolish.vim插件可以快速替换字符串。</p>
+<h3 id="安装方法1"><a href="#安装方法1" class="headerlink" title="安装方法1"></a>安装方法1</h3><p>1) vim官网下载<a href="https://www.vim.org/scripts/script.php?script_id=1545" target="_blank" rel="noopener">abolish.vim插件</a><br>2) 解压到.vim目录下即可。<br>3) 或是解压abolish.zip后将doc下的abolish.txt拷贝到.vim/doc下,abolish.vim拷贝到.vim/plugin下。</p>
+<h3 id="安装方法2"><a href="#安装方法2" class="headerlink" title="安装方法2"></a>安装方法2</h3><p>通过vim的vundle插件管理来安装的,编辑~/.vimrc中的配置<br>Bundle ‘tpope/vim-abolish’<br>然后保存.vimrc, 在vim中:BundleInstall,即可安装完成。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/09/vim插件之Abolish插件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/14/vim实用小技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/14/vim实用小技巧/" itemprop="url">vim实用小技巧</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-14T00:10:23Z">
+                2019-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vim技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">vim技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="查找当前选中的文本"><a href="#查找当前选中的文本" class="headerlink" title="查找当前选中的文本"></a>查找当前选中的文本</h1><p>可以使用<code>:h visual-search</code>查找帮助<br>使用如下脚本，可在可视模式下通过*,#对选中的文本进行查找<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xnoremap * :&lt;C-u&gt;call&lt;SID&gt;VSetSearch()&lt;CR&gt;/&lt;C-R&gt;=@/&lt;CR&gt;&lt;CR&gt;</span><br><span class="line">xnoremap # :&lt;C-u&gt;call&lt;SID&gt;VSetSearch()&lt;CR&gt;?&lt;C-R&gt;=@/&lt;CR&gt;&lt;CR&gt;</span><br><span class="line">function s:VSetSearch()</span><br><span class="line">let temp = @s</span><br><span class="line">norm! gv&quot;sy</span><br><span class="line">let @/ = &apos;\V&apos; . substitute(escape(@s,  &apos;/\&apos;), &apos;\n&apos;, &apos;\\n&apos;, &apos;\g&apos;)</span><br><span class="line">let @s = temp</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure></p>
+<h1 id="结识substitute命令"><a href="#结识substitute命令" class="headerlink" title="结识substitute命令"></a>结识substitute命令</h1><p>语法: <code>:[range][substitute]/{pattern}/{string}/[flags]</code><br>关于标志位，可查询<code>:h s_flags</code></p>
+<h2 id="替换域中的特殊字符"><a href="#替换域中的特殊字符" class="headerlink" title="替换域中的特殊字符"></a>替换域中的特殊字符</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/14/vim实用小技巧/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -473,11 +1297,15 @@
 
       
         
-          
-            <h1 id="gnome屏幕录制"><a href="#gnome屏幕录制" class="headerlink" title="gnome屏幕录制"></a>gnome屏幕录制</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用ctrl-alt-shift-r能录制不超过30秒的短视频。</span><br></pre></td></tr></table></figure>
+          <h1 id="gnome屏幕录制"><a href="#gnome屏幕录制" class="headerlink" title="gnome屏幕录制"></a>gnome屏幕录制</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用ctrl-alt-shift-r能录制不超过30秒的短视频。</span><br></pre></td></tr></table></figure>
 <h1 id="终端产生多标签和多标签切换快捷键"><a href="#终端产生多标签和多标签切换快捷键" class="headerlink" title="终端产生多标签和多标签切换快捷键"></a>终端产生多标签和多标签切换快捷键</h1><p>打开一个terminal<br><code>ctrl+atl+t</code><br>在terminal中打开多个标签<br><code>ctrl+shift+t</code><br>在多个标签中切换方法：<br><code>1.atl+1 、atl + 2 、atl + 3 ...</code><br><code>2.ctrl + pageUp 、ctrl + pageDown</code><br>关闭一个标签<br><code>ctrl + d</code></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/10/ubuntu18小技巧/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -699,8 +1527,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vscode快捷键/" itemprop="url" rel="index">
-                    <span itemprop="name">vscode快捷键</span>
+                  <a href="/categories/vscode/" itemprop="url" rel="index">
+                    <span itemprop="name">vscode</span>
                   </a>
                 </span>
 
@@ -927,377 +1755,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/03/hexo搭建个人博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="微醺">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="微醺的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/03/hexo搭建个人博客/" itemprop="url">Hexo搭建个人博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T15:40:36Z">
-                2019-05-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端-工具-环境搭建-学习/" itemprop="url" rel="index">
-                    <span itemprop="name">前端,工具,环境搭建,学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>一直有写个人博客的想法，拖拖拉拉终于到今天开始实施，hexo + git 搭建了个人博客，欢迎来访：<a href="https://soldier-sen.github.io/" target="_blank" rel="noopener">微醺的个人博客</a></p>
-<p>本人没有购买域名和服务器，仅使用github page平台托管自己的博客，这里可以安心写东西，不容费时间精力维护一个网站，hexo作为一个快速简洁的博客框架，用它来搭建博客还是非常容易的。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/03/hexo搭建个人博客/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/03/Markdown笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="微醺">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="微醺的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/03/Markdown笔记/" itemprop="url">Markdown笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T00:15:05Z">
-                2019-05-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习-写作/" itemprop="url" rel="index">
-                    <span itemprop="name">学习,写作</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Markdown 的目标是实现「易读易写」。<br>Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然。比如：在文字两旁加上星号，看起来就像<em>强调</em>。Markdown 的列表看起来，嗯，就是列表。Markdown 的区块引用看起来就真的像是引用一段文字，就像你曾在电子邮件中见过的那样。</p>
-<h1 id="1-快捷键"><a href="#1-快捷键" class="headerlink" title="1.快捷键"></a>1.快捷键</h1><table>
-<thead>
-<tr>
-<th style="text-align:center"><strong>功能</strong></th>
-<th style="text-align:center"><strong>快捷键</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">加粗</td>
-<td style="text-align:center">Ctrl+B</td>
-</tr>
-<tr>
-<td style="text-align:center">斜体</td>
-<td style="text-align:center">Ctrl+I</td>
-</tr>
-<tr>
-<td style="text-align:center">引用</td>
-<td style="text-align:center">Ctrl+Q</td>
-</tr>
-<tr>
-<td style="text-align:center">插入链接</td>
-<td style="text-align:center">Ctrl+L</td>
-</tr>
-<tr>
-<td style="text-align:center">插入代码</td>
-<td style="text-align:center">Ctrl+K</td>
-</tr>
-<tr>
-<td style="text-align:center">插入图片</td>
-<td style="text-align:center">Ctrl+G</td>
-</tr>
-<tr>
-<td style="text-align:center">提升标题</td>
-<td style="text-align:center">Ctrl+H</td>
-</tr>
-<tr>
-<td style="text-align:center">有序列表</td>
-<td style="text-align:center">Ctrl+O</td>
-</tr>
-<tr>
-<td style="text-align:center">无序列表</td>
-<td style="text-align:center">Ctrl+U</td>
-</tr>
-<tr>
-<td style="text-align:center">横线</td>
-<td style="text-align:center">Ctrl+R</td>
-</tr>
-<tr>
-<td style="text-align:center">撤销</td>
-<td style="text-align:center">Ctrl+Z</td>
-</tr>
-<tr>
-<td style="text-align:center">重做</td>
-<td style="text-align:center">Ctrl+Y</td>
-</tr>
-</tbody>
-</table>
-<h1 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2.基本语法</h1><h2 id="2-1-字体设置斜体、粗体、删除线"><a href="#2-1-字体设置斜体、粗体、删除线" class="headerlink" title="2.1 字体设置斜体、粗体、删除线"></a>2.1 字体设置斜体、粗体、删除线</h2><p><code>这里是正常文字 --&gt;&gt;</code> 这里是正常文字<br><code>**这里是加粗文字** --&gt;&gt;</code><strong>这里是加粗文字</strong><br><code>*这里是倾斜文字* --&gt;&gt;</code><em>这里是倾斜文字</em><br><code>_这里是倾斜文字_ --&gt;&gt;</code><em>这里是倾斜文字</em><br><code>***这里是加粗倾斜文字*** --&gt;&gt;</code><strong><em>这里是加粗倾斜文字</em></strong><br><code>~~这里是中划线文字~~ --&gt;&gt;</code><del>这里是中划线文字</del></p>
-<h2 id="2-2分级标题"><a href="#2-2分级标题" class="headerlink" title="2.2分级标题"></a>2.2分级标题</h2><h3 id="写法1"><a href="#写法1" class="headerlink" title="写法1"></a>写法1</h3><p><code># 一级标题，## 二级标题，### 三级标题，#### 四级标题，##### 五级标题，###### 六级标题</code></p>
-<h3 id="写法2"><a href="#写法2" class="headerlink" title="写法2"></a>写法2</h3><p>这是一个一级标题<br><code>=========================</code><br>或者<br>二级标题<br><code>-------------------------</code></p>
-<h2 id="2-3链接"><a href="#2-3链接" class="headerlink" title="2.3链接"></a>2.3链接</h2><p>1.插入本地图片链接<br><code>![插入本地图片](./703764-605e3cc2ecb664f6.jpg)</code><br>这样子需要把图片放到public中本篇博文index.html同级目录。<br><img src="./703764-605e3cc2ecb664f6.jpg" alt="插入本地图片"><br>2.插入网上图片<br><code>![图片名字](图片链接)</code><br>注: 可以把图片放到自己的github上进行链接，github和md文件关联的图片地址是有一定的格式的，其格式如下：<br><code>https://github.com/用户名/repository/仓库名/raw/分支名master/图片文件夹名称/xxx.png or xxx.jpg</code><br><!-- ![网上图片](https://github.com/Soldier-Sen/img/raw/master/markdown_node/markdown_4.jpg) --><br>3.自动链接<br>Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用&lt;&gt;包起来， Markdown 就会自动把它转成链接。也可以直接写，也是可以显示成链接形式的。<br>两种形式：<br><code>https://soldier-sen.github.io</code> <a href="https://soldier-sen.github.io" target="_blank" rel="noopener">https://soldier-sen.github.io</a><br><code>&lt;https://soldier-sen.github.io/&gt;</code>  <a href="https://soldier-sen.github.io/" target="_blank" rel="noopener">https://soldier-sen.github.io/</a></p>
-<h2 id="2-4-分割线"><a href="#2-4-分割线" class="headerlink" title="2.4 分割线"></a>2.4 分割线</h2><p>你可以在一行中用三个以上的星号(*)、减号(-)、底线(_)来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
-<h2 id="2-5-代码块"><a href="#2-5-代码块" class="headerlink" title="2.5 代码块"></a>2.5 代码块</h2><p>对于程序员来说这个功能是必不可少的，插入程序代码的方式有两种，一种是利用缩进(tab), 另一种是利用英文“`”符号（一般在ESC键下方，和~同一个键）包裹代码。</p>
-<h2 id="（1）代码块：缩进-4-个空格或是-1-个制表符。效果如下"><a href="#（1）代码块：缩进-4-个空格或是-1-个制表符。效果如下" class="headerlink" title="（1）代码块：缩进 4 个空格或是 1 个制表符。效果如下:"></a>（1）代码块：缩进 4 个空格或是 1 个制表符。效果如下:</h2><pre><code>int main(int argc, char *argv[])
-{
-    printf(&quot;hello world\n&quot;);
-    return 0;
-}
-</code></pre><p>（2）行内式：如果在一个行内需要引用代码，只要用反引号`引起来就好（一般在ESC键下方，和~同一个键）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">示例:`int main(int argc, char *argv[])`</span><br></pre></td></tr></table></figure></p>
-<p><code>int main(int argc, char *argv[])</code></p>
-<p>（3）多行代码块与语法高亮：在需要高亮的代码块的前一行及后一行使用三个单反引号“`”包裹，就可以了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;hello world\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<!-- 待学习...
-[点击跳转至百度](http://www.baidu.com)
-[点击跳转到我的github](https://github.com/Soldier-Sen) -->
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/03/Markdown笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1341,7 +1805,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1352,7 +1816,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1363,7 +1827,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

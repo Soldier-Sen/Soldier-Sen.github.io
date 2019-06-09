@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="vim,">
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="科技浪潮中的一个小兵">
+<meta name="description" content="查找当前选中的文本可以使用:h visual-search查找帮助使用如下脚本，可在可视模式下通过*,#对选中的文本进行查找12345678xnoremap * :&amp;lt;C-u&amp;gt;call&amp;lt;SID&amp;gt;VSetSearch()&amp;lt;CR&amp;gt;/&amp;lt;C-R&amp;gt;=@/&amp;lt;CR&amp;gt;&amp;lt;CR&amp;gt;xnoremap # :&amp;lt;C-u&amp;gt;call&amp;lt;SID&amp;">
+<meta name="keywords" content="vim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vim使用小技巧">
+<meta property="og:title" content="vim实用小技巧">
 <meta property="og:url" content="http://yoursite.com/2019/05/14/vim实用小技巧/index.html">
 <meta property="og:site_name" content="微醺的博客">
-<meta property="og:description" content="科技浪潮中的一个小兵">
+<meta property="og:description" content="查找当前选中的文本可以使用:h visual-search查找帮助使用如下脚本，可在可视模式下通过*,#对选中的文本进行查找12345678xnoremap * :&amp;lt;C-u&amp;gt;call&amp;lt;SID&amp;gt;VSetSearch()&amp;lt;CR&amp;gt;/&amp;lt;C-R&amp;gt;=@/&amp;lt;CR&amp;gt;&amp;lt;CR&amp;gt;xnoremap # :&amp;lt;C-u&amp;gt;call&amp;lt;SID&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-13T16:10:23.536Z">
+<meta property="og:updated_time" content="2019-06-09T04:41:56.899Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vim使用小技巧">
-<meta name="twitter:description" content="科技浪潮中的一个小兵">
+<meta name="twitter:title" content="vim实用小技巧">
+<meta name="twitter:description" content="查找当前选中的文本可以使用:h visual-search查找帮助使用如下脚本，可在可视模式下通过*,#对选中的文本进行查找12345678xnoremap * :&amp;lt;C-u&amp;gt;call&amp;lt;SID&amp;gt;VSetSearch()&amp;lt;CR&amp;gt;/&amp;lt;C-R&amp;gt;=@/&amp;lt;CR&amp;gt;&amp;lt;CR&amp;gt;xnoremap # :&amp;lt;C-u&amp;gt;call&amp;lt;SID&amp;">
 
 
 
@@ -127,7 +128,7 @@
 
 
 
-  <title>vim使用小技巧 | 微醺的博客</title>
+  <title>vim实用小技巧 | 微醺的博客</title>
   
 
 
@@ -301,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vim使用小技巧</h1>
+          <h1 class="post-title" itemprop="name headline">vim实用小技巧</h1>
         
 
         <div class="post-meta">
@@ -323,6 +324,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vim技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">vim技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -351,7 +374,56 @@
       
 
       
-        
+        <h1 id="查找当前选中的文本"><a href="#查找当前选中的文本" class="headerlink" title="查找当前选中的文本"></a>查找当前选中的文本</h1><p>可以使用<code>:h visual-search</code>查找帮助<br>使用如下脚本，可在可视模式下通过*,#对选中的文本进行查找<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xnoremap * :&lt;C-u&gt;call&lt;SID&gt;VSetSearch()&lt;CR&gt;/&lt;C-R&gt;=@/&lt;CR&gt;&lt;CR&gt;</span><br><span class="line">xnoremap # :&lt;C-u&gt;call&lt;SID&gt;VSetSearch()&lt;CR&gt;?&lt;C-R&gt;=@/&lt;CR&gt;&lt;CR&gt;</span><br><span class="line">function s:VSetSearch()</span><br><span class="line">let temp = @s</span><br><span class="line">norm! gv&quot;sy</span><br><span class="line">let @/ = &apos;\V&apos; . substitute(escape(@s,  &apos;/\&apos;), &apos;\n&apos;, &apos;\\n&apos;, &apos;\g&apos;)</span><br><span class="line">let @s = temp</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure></p>
+<h1 id="结识substitute命令"><a href="#结识substitute命令" class="headerlink" title="结识substitute命令"></a>结识substitute命令</h1><p>语法: <code>:[range][substitute]/{pattern}/{string}/[flags]</code><br>关于标志位，可查询<code>:h s_flags</code></p>
+<h2 id="替换域中的特殊字符"><a href="#替换域中的特殊字符" class="headerlink" title="替换域中的特殊字符"></a>替换域中的特殊字符</h2><a id="more"></a>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\r</td>
+<td style="text-align:center">插入一个换行符</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td style="text-align:center">插入一个制表符</td>
+</tr>
+<tr>
+<td style="text-align:center">\</td>
+<td style="text-align:center">插入一个反斜杠</td>
+</tr>
+<tr>
+<td style="text-align:center">\1</td>
+<td style="text-align:center">插入第1个子匹配</td>
+</tr>
+<tr>
+<td style="text-align:center">\2</td>
+<td style="text-align:center">插入第2个子匹配(以此类推，最多到9)</td>
+</tr>
+<tr>
+<td style="text-align:center">\0</td>
+<td style="text-align:center">插入匹配模式所有内容</td>
+</tr>
+<tr>
+<td style="text-align:center">～</td>
+<td style="text-align:center">使用上一次调用:substitute时的{string}</td>
+</tr>
+<tr>
+<td style="text-align:center">\={vim stript}</td>
+<td style="text-align:center">执行{vim stript}表达式，并将返回的接轨作为替换{string}</td>
+</tr>
+</tbody>
+</table>
+<h1 id="替换命令"><a href="#替换命令" class="headerlink" title="替换命令"></a>替换命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">：s/going/rolling          仅替换第一个匹配</span><br><span class="line">：s/going/rolling/g        替换当前行所有匹配</span><br><span class="line">：%s/going/rolling/g       替换当前文件所有匹配</span><br><span class="line">：%s/going/rolling/gc      手动控制每一次替换操作</span><br></pre></td></tr></table></figure>
+<p><em>替换命令中，如果查找域为空，则会重用上次的查找结果。</em><br>*可以输入<c-r>/即可把上次的查找内容粘贴进来。<br><code>:s/&lt;C-r&gt;//replace/g</code></c-r></p>
+<p>gv命令会激活可是模式，重新将上次被选中的文本高亮起来。</p>
+<h1 id="vim-C语言函数名高亮"><a href="#vim-C语言函数名高亮" class="headerlink" title="vim C语言函数名高亮"></a>vim C语言函数名高亮</h1><p>在/usr/share/vim/vim80/syntax/c.vim中添加如下代码，设置高亮为蓝色：<br>syn match cFuntions display “[a-zA-Z_]{-1,}\s{-0,}({1}”ms=s,me=e-1<br>hi cFunctions gui=NONE cterm=bold  ctermfg=blue</p>
+<h3 id="如果当前光标处于一个括号上，使用-可以快速跳到其配对的括号上"><a href="#如果当前光标处于一个括号上，使用-可以快速跳到其配对的括号上" class="headerlink" title="如果当前光标处于一个括号上，使用%可以快速跳到其配对的括号上"></a>如果当前光标处于一个括号上，使用%可以快速跳到其配对的括号上</h3>
       
     </div>
     
@@ -365,6 +437,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vim/" rel="tag"># vim</a>
+          
+        </div>
       
 
       
@@ -384,6 +462,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/09/vim插件之Abolish插件/" rel="prev" title="vim插件之Abolish">
+                vim插件之Abolish <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -435,8 +517,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -451,7 +542,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -462,7 +553,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -473,7 +564,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -543,6 +634,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查找当前选中的文本"><span class="nav-number">1.</span> <span class="nav-text">查找当前选中的文本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结识substitute命令"><span class="nav-number">2.</span> <span class="nav-text">结识substitute命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#替换域中的特殊字符"><span class="nav-number">2.1.</span> <span class="nav-text">替换域中的特殊字符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#替换命令"><span class="nav-number">3.</span> <span class="nav-text">替换命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-C语言函数名高亮"><span class="nav-number">4.</span> <span class="nav-text">vim C语言函数名高亮</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如果当前光标处于一个括号上，使用-可以快速跳到其配对的括号上"><span class="nav-number">4.0.1.</span> <span class="nav-text">如果当前光标处于一个括号上，使用%可以快速跳到其配对的括号上</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
