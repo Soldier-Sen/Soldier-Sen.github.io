@@ -2,7 +2,7 @@
 title: Hexo搭建个人博客
 date: 2019-05-03 15:40:36
 tags: [hexo,git,ssh]
-categories: 前端,工具,环境搭建,学习
+categories: hexo
 toc: true
 ---
 
