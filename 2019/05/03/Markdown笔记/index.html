@@ -90,12 +90,13 @@
 <meta property="og:description" content="概述Markdown 的目标是实现「易读易写」。Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然。比如：在文字两旁加上星号，看起来就像强调。Markdown 的列表看起来，嗯，就是列表。Markdown 的区块引用看起来就真的像是引用一段文字，就像你曾在电子邮件中见过的那样。 1.快捷键   功能 快捷键     加粗 Ctrl+B   斜体 Ctrl+I   引用">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/05/03/Markdown笔记/703764-605e3cc2ecb664f6.jpg">
+<meta property="og:image" content="https://github.com/Soldier-Sen/img/raw/master/markdown_node/markdown_4.jpg">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/703764-605e3cc2ecb664f6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg">
 <meta property="og:image" content="https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg =30x30">
 <meta property="og:image" content="https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg#pic_center">
 <meta property="og:image" content="https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg#pic_center =30x30">
-<meta property="og:updated_time" content="2019-05-04T16:44:47.861Z">
+<meta property="og:updated_time" content="2019-07-14T04:22:19.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown笔记">
 <meta name="twitter:description" content="概述Markdown 的目标是实现「易读易写」。Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然。比如：在文字两旁加上星号，看起来就像强调。Markdown 的列表看起来，嗯，就是列表。Markdown 的区块引用看起来就真的像是引用一段文字，就像你曾在电子邮件中见过的那样。 1.快捷键   功能 快捷键     加粗 Ctrl+B   斜体 Ctrl+I   引用">
@@ -344,8 +345,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习-写作/" itemprop="url" rel="index">
-                    <span itemprop="name">学习,写作</span>
+                  <a href="/categories/Markdown/" itemprop="url" rel="index">
+                    <span itemprop="name">Markdown</span>
                   </a>
                 </span>
 
@@ -443,7 +444,7 @@
 <h1 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2.基本语法</h1><h2 id="2-1-字体设置斜体、粗体、删除线"><a href="#2-1-字体设置斜体、粗体、删除线" class="headerlink" title="2.1 字体设置斜体、粗体、删除线"></a>2.1 字体设置斜体、粗体、删除线</h2><p><code>这里是正常文字 --&gt;&gt;</code> 这里是正常文字<br><code>**这里是加粗文字** --&gt;&gt;</code><strong>这里是加粗文字</strong><br><code>*这里是倾斜文字* --&gt;&gt;</code><em>这里是倾斜文字</em><br><code>_这里是倾斜文字_ --&gt;&gt;</code><em>这里是倾斜文字</em><br><code>***这里是加粗倾斜文字*** --&gt;&gt;</code><strong><em>这里是加粗倾斜文字</em></strong><br><code>~~这里是中划线文字~~ --&gt;&gt;</code><del>这里是中划线文字</del></p>
 <h2 id="2-2分级标题"><a href="#2-2分级标题" class="headerlink" title="2.2分级标题"></a>2.2分级标题</h2><h3 id="写法1"><a href="#写法1" class="headerlink" title="写法1"></a>写法1</h3><p><code># 一级标题，## 二级标题，### 三级标题，#### 四级标题，##### 五级标题，###### 六级标题</code></p>
 <h3 id="写法2"><a href="#写法2" class="headerlink" title="写法2"></a>写法2</h3><p>这是一个一级标题<br><code>=========================</code><br>或者<br>二级标题<br><code>-------------------------</code></p>
-<h2 id="2-3链接"><a href="#2-3链接" class="headerlink" title="2.3链接"></a>2.3链接</h2><p>1.插入本地图片链接<br><code>![插入本地图片](./703764-605e3cc2ecb664f6.jpg)</code><br>这样子需要把图片放到public中本篇博文index.html同级目录。<br><img src="./703764-605e3cc2ecb664f6.jpg" alt="插入本地图片"><br>2.插入网上图片<br><code>![图片名字](图片链接)</code><br>注: 可以把图片放到自己的github上进行链接，github和md文件关联的图片地址是有一定的格式的，其格式如下：<br><code>https://github.com/用户名/repository/仓库名/raw/分支名master/图片文件夹名称/xxx.png or xxx.jpg</code><br><!-- ![网上图片](https://github.com/Soldier-Sen/img/raw/master/markdown_node/markdown_4.jpg) --><br>3.自动链接<br>Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用&lt;&gt;包起来， Markdown 就会自动把它转成链接。也可以直接写，也是可以显示成链接形式的。<br>两种形式：<br><code>https://soldier-sen.github.io</code> <a href="https://soldier-sen.github.io" target="_blank" rel="noopener">https://soldier-sen.github.io</a><br><code>&lt;https://soldier-sen.github.io/&gt;</code>  <a href="https://soldier-sen.github.io/" target="_blank" rel="noopener">https://soldier-sen.github.io/</a></p>
+<h2 id="2-3链接"><a href="#2-3链接" class="headerlink" title="2.3链接"></a>2.3链接</h2><p>1.插入本地图片链接<br><code>![插入本地图片](./703764-605e3cc2ecb664f6.jpg)</code><br>这样子需要把图片放到public中本篇博文index.html同级目录。<br><img src="./703764-605e3cc2ecb664f6.jpg" alt="插入本地图片"><br>2.插入网上图片<br><code>![图片名字](图片链接)</code><br>注: 可以把图片放到自己的github上进行链接，github和md文件关联的图片地址是有一定的格式的，其格式如下：<br><code>https://github.com/用户名/repository/仓库名/raw/分支名master/图片文件夹名称/xxx.png or xxx.jpg</code><br><img src="https://github.com/Soldier-Sen/img/raw/master/markdown_node/markdown_4.jpg" alt="网上图片"><br>3.自动链接<br>Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用&lt;&gt;包起来， Markdown 就会自动把它转成链接。也可以直接写，也是可以显示成链接形式的。<br>两种形式：<br><code>https://soldier-sen.github.io</code> <a href="https://soldier-sen.github.io" target="_blank" rel="noopener">https://soldier-sen.github.io</a><br><code>&lt;https://soldier-sen.github.io/&gt;</code>  <a href="https://soldier-sen.github.io/" target="_blank" rel="noopener">https://soldier-sen.github.io/</a></p>
 <h2 id="2-4-分割线"><a href="#2-4-分割线" class="headerlink" title="2.4 分割线"></a>2.4 分割线</h2><p>你可以在一行中用三个以上的星号(*)、减号(-)、底线(_)来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
 <h2 id="2-5-代码块"><a href="#2-5-代码块" class="headerlink" title="2.5 代码块"></a>2.5 代码块</h2><p>对于程序员来说这个功能是必不可少的，插入程序代码的方式有两种，一种是利用缩进(tab), 另一种是利用英文“`”符号（一般在ESC键下方，和~同一个键）包裹代码。</p>
 <h2 id="（1）代码块：缩进-4-个空格或是-1-个制表符。效果如下"><a href="#（1）代码块：缩进-4-个空格或是-1-个制表符。效果如下" class="headerlink" title="（1）代码块：缩进 4 个空格或是 1 个制表符。效果如下:"></a>（1）代码块：缩进 4 个空格或是 1 个制表符。效果如下:</h2><pre><code>int main(int argc, char *argv[])
@@ -703,7 +704,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -714,7 +715,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -725,7 +726,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

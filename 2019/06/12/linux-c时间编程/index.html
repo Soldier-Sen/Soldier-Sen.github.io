@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="1.Linux下常用时间类型有四种：time_t 、struct  tm、struct  timeval 、struct  timespec time_t 时间类型#include &amp;lt;time.h&amp;gt; typedef    long  time_t 说明  : 实际是一个长整型，其值表示从1970年1月1日00分00秒到当前时刻的秒数，由于time_t类型长度限制，在32位机子上，最大为">
+<meta name="description" content="1. Linux下常用时间类型有四种：time_t 、struct  tm、struct  timeval 、struct  timespec time_t 时间类型#include &amp;lt;time.h&amp;gt; typedef    long  time_t 说明  : 实际是一个长整型，其值表示从1970年1月1日00分00秒到当前时刻的秒数，由于time_t类型长度限制，在32位机子上，最大">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux c时间编程">
 <meta property="og:url" content="http://yoursite.com/2019/06/12/linux-c时间编程/index.html">
 <meta property="og:site_name" content="微醺的博客">
-<meta property="og:description" content="1.Linux下常用时间类型有四种：time_t 、struct  tm、struct  timeval 、struct  timespec time_t 时间类型#include &amp;lt;time.h&amp;gt; typedef    long  time_t 说明  : 实际是一个长整型，其值表示从1970年1月1日00分00秒到当前时刻的秒数，由于time_t类型长度限制，在32位机子上，最大为">
+<meta property="og:description" content="1. Linux下常用时间类型有四种：time_t 、struct  tm、struct  timeval 、struct  timespec time_t 时间类型#include &amp;lt;time.h&amp;gt; typedef    long  time_t 说明  : 实际是一个长整型，其值表示从1970年1月1日00分00秒到当前时刻的秒数，由于time_t类型长度限制，在32位机子上，最大">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-11T15:42:19.635Z">
+<meta property="og:updated_time" content="2019-06-22T08:12:39.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux c时间编程">
-<meta name="twitter:description" content="1.Linux下常用时间类型有四种：time_t 、struct  tm、struct  timeval 、struct  timespec time_t 时间类型#include &amp;lt;time.h&amp;gt; typedef    long  time_t 说明  : 实际是一个长整型，其值表示从1970年1月1日00分00秒到当前时刻的秒数，由于time_t类型长度限制，在32位机子上，最大为">
+<meta name="twitter:description" content="1. Linux下常用时间类型有四种：time_t 、struct  tm、struct  timeval 、struct  timespec time_t 时间类型#include &amp;lt;time.h&amp;gt; typedef    long  time_t 说明  : 实际是一个长整型，其值表示从1970年1月1日00分00秒到当前时刻的秒数，由于time_t类型长度限制，在32位机子上，最大">
 
 
 
@@ -374,11 +374,12 @@
       
 
       
-        <h1 id="1-Linux下常用时间类型有四种："><a href="#1-Linux下常用时间类型有四种：" class="headerlink" title="1.Linux下常用时间类型有四种："></a>1.Linux下常用时间类型有四种：</h1><pre><code>time_t 、struct  tm、struct  timeval 、struct  timespec
+        <h1 id="1-Linux下常用时间类型有四种："><a href="#1-Linux下常用时间类型有四种：" class="headerlink" title="1. Linux下常用时间类型有四种："></a>1. Linux下常用时间类型有四种：</h1><pre><code>time_t 、struct  tm、struct  timeval 、struct  timespec
 </code></pre><h2 id="time-t-时间类型"><a href="#time-t-时间类型" class="headerlink" title="time_t 时间类型"></a>time_t 时间类型</h2><pre><code>#include &lt;time.h&gt;
 typedef    long  time_t
 </code></pre><p>说明  : 实际是一个长整型，其值表示从1970年1月1日00分00秒到当前时刻的秒数，由于time_t类型长度限制，在32位机子上，最大为0x7fffffff, 它表示的时间最大为Tue Jan 19 03:14:07 2038（GMT）。</p>
-<p>注：GMT时间也称UTC时间，其实UTC和GMT两者几乎一个概念.</p>
+<a id="more"></a>
+<p>注：GMT时间也称UTC时间，其实UTC和GMT两者几乎一个概念。UTC（Coordinated Universal Time)世界标准时间 即 GMT(Greenwich Mean Time)格林威治标准时间。</p>
 <h2 id="struct-tm-时间类型"><a href="#struct-tm-时间类型" class="headerlink" title="struct  tm 时间类型"></a>struct  tm 时间类型</h2><pre><code>#include &lt;time.h&gt;
 struct tm {
     int tm_sec;    /* Seconds (0-60) */
@@ -391,21 +392,76 @@ struct tm {
     int tm_yday;   /* Day in the year (0-365, 1 Jan = 0) */
     int tm_isdst;  /*夏令时标识符，使用夏令时，tm_isdst为正，不使用夏令时，tm_isdst为0，不了解情况时&gt;，tm_isdst为负*/ 
 };
-</code></pre><h1 id="2-Linux常用时间函数"><a href="#2-Linux常用时间函数" class="headerlink" title="2.Linux常用时间函数"></a>2.Linux常用时间函数</h1><h2 id="ctime-函数与-ctime-r-函数"><a href="#ctime-函数与-ctime-r-函数" class="headerlink" title="ctime 函数与 ctime_r 函数"></a>ctime 函数与 ctime_r 函数</h2><pre><code>#include &lt;time.h&gt;
+</code></pre><h2 id="struct-timeval-时间类型"><a href="#struct-timeval-时间类型" class="headerlink" title="struct timeval 时间类型"></a>struct timeval 时间类型</h2><pre><code>#include &lt;time.h&gt;
+struct timeval {
+    time_t      tv_sec;     /* seconds */
+    suseconds_t tv_usec;    /* microseconds */
+};
+struct timezone {
+    int tz_minuteswest;     /* minutes west of Greenwich */
+    int tz_dsttime;         /* type of DST correction */
+};
+</code></pre><p>说明：设置时间函数settimeofday()与获取时间函数gettimeofday()均使用struct timeval类型作为参数。</p>
+<h2 id="struct-timespec-时间类型"><a href="#struct-timespec-时间类型" class="headerlink" title="struct timespec 时间类型"></a>struct timespec 时间类型</h2><pre><code>#include &lt;time.h&gt;
+strcut timespec {
+    time_t tv_sec;  //seconds
+    long tv_nsec;   //and nanoseconds
+}
+</code></pre><p>struct timespec有两个成员，一个是秒，一个是纳秒, 所以最高精确度是纳秒。<br>一般由函数int clock_gettime(clockid_t, struct timespec *)获取特定时钟的时间。<br>    常用如下4种时钟：<br>    CLOCK_REALTIME 统当前时间，从1970年1.1日算起；<br>    CLOCK_MONOTONIC 系统的启动时间，不能被设置；<br>    CLOCK_PROCESS_CPUTIME_ID 本进程运行时间；<br>    CLOCK_THREAD_CPUTIME_ID 本线程运行时间；</p>
+<h1 id="2-Linux常用时间函数"><a href="#2-Linux常用时间函数" class="headerlink" title="2. Linux常用时间函数"></a>2. Linux常用时间函数</h1><p>Linux下常用时间函数有：time(), ctime(), gmtime(), localtime(), mktime(), asctime(),difftime(), gettimeofday(), settimeofday().</p>
+<p>部分时间相关函数中，带有”_r“的函数为线程安全 ，与之对应的函数不是线程安全的，多线程应用里建议使用xxx_r函数。</p>
+<h2 id="2-1-time-函数"><a href="#2-1-time-函数" class="headerlink" title="2.1 time 函数"></a>2.1 time 函数</h2><pre><code>#include &lt;time.h&gt;
+time_t time(time_t *tloc); //获取日历时间。
+</code></pre><p>说明：该函数返回从1970年1月1日00时00分00秒至今所经过的秒数。如果time_t *tloc为非空指针，函数也会将返回值存到tloc指针指向的内存。<br>返回：成功返回秒数，失败返回-1值，错误原因存于erron中。</p>
+<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;time.h&gt;</span><br><span class="line">int main() &#123;</span><br><span class="line">    time_t t;</span><br><span class="line">    t = time(NULL);</span><br><span class="line">    printf(&quot;ctime:%s\n&quot;, ctime(&amp;t));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time=1561160476</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-2-ctime-函数与-ctime-r-函数"><a href="#2-2-ctime-函数与-ctime-r-函数" class="headerlink" title="2.2 ctime 函数与 ctime_r 函数"></a>2.2 ctime 函数与 ctime_r 函数</h2><pre><code>#include &lt;time.h&gt;
 char *ctime(const time_t *timep);
 char *ctime_r(const time_t *timep, char *buf);
-</code></pre><h2 id="gmtime-函数与-gmtime-r-函数"><a href="#gmtime-函数与-gmtime-r-函数" class="headerlink" title="gmtime 函数与 gmtime_r 函数"></a>gmtime 函数与 gmtime_r 函数</h2><pre><code>#include &lt;time.h&gt;
+</code></pre><p>说明：<br>返回：一个表示当地时间的字符串，格式为：[Www Mmm dd hh:mm:ss yyyy\n]，输出自动带一个换行符。<br>Www: 一周的一天（之一Mon，Tue，Wed，Thu，Fri，Sat，Sun）<br>MMM: 月(Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec)<br>dd : 一个月中的一天<br>hh : 小时<br>mm : 分钟<br>ss : 秒<br>yyyy : 年</p>
+<h3 id="例子2-2-1："><a href="#例子2-2-1：" class="headerlink" title="例子2.2.1："></a>例子2.2.1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;time.h&gt;</span><br><span class="line">int main() &#123;</span><br><span class="line">    time_t t;</span><br><span class="line">    t = time(NULL);</span><br><span class="line">    printf(&quot;ctime: %s\n&quot;, ctime(&amp;t));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctime: Sat Jun 22 15:14:27 2019</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-3-gmtime-函数与-gmtime-r-函数"><a href="#2-3-gmtime-函数与-gmtime-r-函数" class="headerlink" title="2.3 gmtime 函数与 gmtime_r 函数"></a>2.3 gmtime 函数与 gmtime_r 函数</h2><pre><code>#include &lt;time.h&gt;
 struct tm *gmtime(const time_t *timep);
 struct tm *gmtime_r(const time_t *timep, struct tm *result);
-</code></pre><h2 id="asctime-函数与-asctime-r-函数"><a href="#asctime-函数与-asctime-r-函数" class="headerlink" title="asctime 函数与 asctime_r 函数"></a>asctime 函数与 asctime_r 函数</h2><pre><code>#include &lt;time.h&gt;
+</code></pre><p>说明：将获取到的日历时间转换为GMT时间，格式为struct tm结构；<br>返回：返回struct tm格式的GMT时间；</p>
+<h3 id="例子2-3-1："><a href="#例子2-3-1：" class="headerlink" title="例子2.3.1："></a>例子2.3.1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;time.h&gt;</span><br><span class="line">int main() &#123;</span><br><span class="line">    time_t t;</span><br><span class="line">    t = time(NULL);</span><br><span class="line">    printf(&quot;time:%ld\n&quot;, t);</span><br><span class="line"></span><br><span class="line">    struct tm *local = NULL;</span><br><span class="line">    local = localtime(&amp;t);</span><br><span class="line">    printf(&quot;localtime:%04d-%02d-%02d %02d:%02d:%02d\n&quot;, local-&gt;tm_year+1900, local-&gt;tm_mon, local-&gt;tm_mday, local-&gt;tm_hour, local-&gt;tm_min, local-&gt;tm_sec);</span><br><span class="line">    </span><br><span class="line">    printf(&quot;asctime:%s&quot;, asctime(local));</span><br><span class="line">    </span><br><span class="line">    time_t t2 = mktime(local);</span><br><span class="line">    printf(&quot;mktime:%ld\n\n&quot;, t2);</span><br><span class="line">    </span><br><span class="line">    local = gmtime(&amp;t);</span><br><span class="line">    printf(&quot;gmtime:  %04d-%02d-%02d %02d:%02d:%02d\n&quot;, local-&gt;tm_year+1900, local-&gt;tm_mon, local-&gt;tm_mday, local-&gt;tm_hour, local-&gt;tm_min, local-&gt;tm_sec);</span><br><span class="line">    </span><br><span class="line">    printf(&quot;asctime:%s&quot;, asctime(local));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">time:1561173424</span><br><span class="line">localtime:2019-05-22 11:17:04</span><br><span class="line">asctime:Sat Jun 22 11:17:04 2019</span><br><span class="line">mktime:1561173424</span><br><span class="line"></span><br><span class="line">gmtime:  2019-05-22 03:17:04</span><br><span class="line">asctime:Sat Jun 22 03:17:04 2019</span><br></pre></td></tr></table></figure></p>
+<p>本次ubuntu主机设置时区为东八区，所以本地时间与GMT时间有8小时的时差。</p>
+<h2 id="2-4-asctime-函数与-asctime-r-函数"><a href="#2-4-asctime-函数与-asctime-r-函数" class="headerlink" title="2.4 asctime 函数与 asctime_r 函数"></a>2.4 asctime 函数与 asctime_r 函数</h2><pre><code>#include &lt;time.h&gt;
 char *asctime(const struct tm *tm);
 char *asctime_r(const struct tm *tm, char *buf);
-</code></pre><h2 id="localtime-函数与-localtime-r-函数"><a href="#localtime-函数与-localtime-r-函数" class="headerlink" title="localtime 函数与 localtime_r 函数"></a>localtime 函数与 localtime_r 函数</h2><pre><code>#include &lt;time.h&gt;
+</code></pre><p>说明：将本地时间转换为符串形式；<br>返回：时间字符串。<br>例子参见”例子2.3.1”</p>
+<h2 id="2-5-localtime-函数与-localtime-r-函数"><a href="#2-5-localtime-函数与-localtime-r-函数" class="headerlink" title="2.5 localtime 函数与 localtime_r 函数"></a>2.5 localtime 函数与 localtime_r 函数</h2><pre><code>#include &lt;time.h&gt;
 struct tm *localtime(const time_t *timep);
 struct tm *localtime_r(const time_t *timep, struct tm *result);
-</code></pre><h2 id="mktime-函数"><a href="#mktime-函数" class="headerlink" title="mktime 函数"></a>mktime 函数</h2><pre><code>#include &lt;time.h&gt;
+</code></pre><p>说明：将获取到的日历时间转换为本地时间，结构为struct tm结构；<br>返回：返回为struct tm类型的指针；<br>例子参见”例子2.3.1”</p>
+<h2 id="2-6-mktime-函数"><a href="#2-6-mktime-函数" class="headerlink" title="2.6 mktime 函数"></a>2.6 mktime 函数</h2><pre><code>#include &lt;time.h&gt;
 time_t mktime(struct tm *tm);
-</code></pre>
+</code></pre><p>说明：将struct tm结构的本地时间转为日历时间，即经过的秒数；<br>返回：返回日历时间；</p>
+<p>例子参见”例子2.3.1”</p>
+<h2 id="2-7-gettimeofday-函数与-settimeofday-函数"><a href="#2-7-gettimeofday-函数与-settimeofday-函数" class="headerlink" title="2.7 gettimeofday 函数与 settimeofday 函数"></a>2.7 gettimeofday 函数与 settimeofday 函数</h2><pre><code>#include &lt;sys/time.h&gt;
+int gettimeofday(struct timeval *tv, struct timezone *tz);
+int settimeofday(const struct timeval *tv, const struct timezone *tz);
+
+struct timeval {
+    time_t      tv_sec;     /* seconds */
+    suseconds_t tv_usec;    /* microseconds */
+};
+struct timezone {
+    int tz_minuteswest;     /* minutes west of Greenwich */
+    int tz_dsttime;         /* type of DST correction */
+};
+</code></pre><p>说明： 获取/设置本地时间，可达微秒级。gettimeofday获取当前时间存于struct timeval结构体中，相应的时区信息存于struct timezone结构体中。注意： tz是依赖系统的，不同系统可能获取不到，因此通常设置为NULL。<br>返回：</p>
+<h3 id="例子2-7-1："><a href="#例子2-7-1：" class="headerlink" title="例子2.7.1："></a>例子2.7.1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;sys/time.h&gt;</span><br><span class="line">#include &lt;time.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    struct timeval tv;</span><br><span class="line">    struct timezone tz;</span><br><span class="line">    gettimeofday(&amp;tv, &amp;tz);</span><br><span class="line">    printf(&quot;time(NULL)；%ld\n&quot;, time(NULL));</span><br><span class="line">    printf(&quot;tv_sec:%ld, tv_usec:%ld\n&quot;, tv.tv_sec, tv.tv_usec);</span><br><span class="line">    printf(&quot;dsttime:%d, minuteswest:%d\n&quot;, tz.tz_dsttime, tz.tz_minuteswest);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">time(NULL)；1561190012</span><br><span class="line">tv_sec:1561190012, tv_usec:285375</span><br><span class="line">dsttime:0, minuteswest:0</span><br></pre></td></tr></table></figure></p>
+<h3 id="例子2-7-2："><a href="#例子2-7-2：" class="headerlink" title="例子2.7.2："></a>例子2.7.2：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;sys/time.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    struct timeval tv, set1;</span><br><span class="line">    gettimeofday(&amp;tv, NULL);</span><br><span class="line">    system(&quot;date&quot;);</span><br><span class="line"></span><br><span class="line">    set1.tv_sec =  tv.tv_sec - 30;</span><br><span class="line">    settimeofday(&amp;set1, NULL);</span><br><span class="line">    system(&quot;date&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2019年 06月 22日 星期六 16:08:42 CST</span><br><span class="line">2019年 06月 22日 星期六 16:08:12 CST</span><br></pre></td></tr></table></figure></p>
+<h1 id="2-8-stime-函数"><a href="#2-8-stime-函数" class="headerlink" title="2.8 stime 函数"></a>2.8 stime 函数</h1><pre><code>#include &lt;time.h&gt;
+int stime(const time_t *t);
+</code></pre><p>说明：可以设置系统时间，精确到秒。<br>返回：成功返回0，错误返回-1，errno错误码，EFAULT表示传递的参数错误，如时间值是无效的值，EPERM表示权限不够，注意只有root用户才有修改系统时间的权限。如果要让普通程序修改系统时间，可以先切换到root用户操作，修改完成后，再切换到普通用户，或者用命令chmod +s给执行文件加上root用户的权限。</p>
+<h3 id="例子2-8-1："><a href="#例子2-8-1：" class="headerlink" title="例子2.8.1："></a>例子2.8.1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;sys/time.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    time_t t;</span><br><span class="line">    t = time(NULL);</span><br><span class="line">    system(&quot;date&quot;);</span><br><span class="line"></span><br><span class="line">    t =  t - 30;</span><br><span class="line">    stime(&amp;t);</span><br><span class="line">    system(&quot;date&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -444,6 +500,10 @@ time_t mktime(struct tm *tm);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/20/git免密码输入远程提交（ssh替换https/" rel="prev" title="git免密码输入远程提交（ssh替换https)">
+                git免密码输入远程提交（ssh替换https) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -520,7 +580,7 @@ time_t mktime(struct tm *tm);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -531,7 +591,7 @@ time_t mktime(struct tm *tm);
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -542,7 +602,7 @@ time_t mktime(struct tm *tm);
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -622,7 +682,7 @@ time_t mktime(struct tm *tm);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Linux下常用时间类型有四种："><span class="nav-number">1.</span> <span class="nav-text">1.Linux下常用时间类型有四种：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#time-t-时间类型"><span class="nav-number">1.1.</span> <span class="nav-text">time_t 时间类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#struct-tm-时间类型"><span class="nav-number">1.2.</span> <span class="nav-text">struct  tm 时间类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Linux常用时间函数"><span class="nav-number">2.</span> <span class="nav-text">2.Linux常用时间函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ctime-函数与-ctime-r-函数"><span class="nav-number">2.1.</span> <span class="nav-text">ctime 函数与 ctime_r 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gmtime-函数与-gmtime-r-函数"><span class="nav-number">2.2.</span> <span class="nav-text">gmtime 函数与 gmtime_r 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#asctime-函数与-asctime-r-函数"><span class="nav-number">2.3.</span> <span class="nav-text">asctime 函数与 asctime_r 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localtime-函数与-localtime-r-函数"><span class="nav-number">2.4.</span> <span class="nav-text">localtime 函数与 localtime_r 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mktime-函数"><span class="nav-number">2.5.</span> <span class="nav-text">mktime 函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Linux下常用时间类型有四种："><span class="nav-number">1.</span> <span class="nav-text">1. Linux下常用时间类型有四种：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#time-t-时间类型"><span class="nav-number">1.1.</span> <span class="nav-text">time_t 时间类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#struct-tm-时间类型"><span class="nav-number">1.2.</span> <span class="nav-text">struct  tm 时间类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#struct-timeval-时间类型"><span class="nav-number">1.3.</span> <span class="nav-text">struct timeval 时间类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#struct-timespec-时间类型"><span class="nav-number">1.4.</span> <span class="nav-text">struct timespec 时间类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Linux常用时间函数"><span class="nav-number">2.</span> <span class="nav-text">2. Linux常用时间函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-time-函数"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 time 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子："><span class="nav-number">2.1.1.</span> <span class="nav-text">例子：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-ctime-函数与-ctime-r-函数"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 ctime 函数与 ctime_r 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子2-2-1："><span class="nav-number">2.2.1.</span> <span class="nav-text">例子2.2.1：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-gmtime-函数与-gmtime-r-函数"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 gmtime 函数与 gmtime_r 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子2-3-1："><span class="nav-number">2.3.1.</span> <span class="nav-text">例子2.3.1：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-asctime-函数与-asctime-r-函数"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 asctime 函数与 asctime_r 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-localtime-函数与-localtime-r-函数"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 localtime 函数与 localtime_r 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-mktime-函数"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 mktime 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-gettimeofday-函数与-settimeofday-函数"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 gettimeofday 函数与 settimeofday 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子2-7-1："><span class="nav-number">2.7.1.</span> <span class="nav-text">例子2.7.1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子2-7-2："><span class="nav-number">2.7.2.</span> <span class="nav-text">例子2.7.2：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-8-stime-函数"><span class="nav-number">3.</span> <span class="nav-text">2.8 stime 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子2-8-1："><span class="nav-number">3.0.1.</span> <span class="nav-text">例子2.8.1：</span></a></li></ol></li></ol></div>
             
 
           </div>

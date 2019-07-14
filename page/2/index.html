@@ -284,6 +284,400 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/ubuntu18小技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/10/ubuntu18小技巧/" itemprop="url">ubuntu18小技巧</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-10T10:38:43Z">
+                2019-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="gnome屏幕录制"><a href="#gnome屏幕录制" class="headerlink" title="gnome屏幕录制"></a>gnome屏幕录制</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用ctrl-alt-shift-r能录制不超过30秒的短视频。</span><br></pre></td></tr></table></figure>
+<h1 id="终端产生多标签和多标签切换快捷键"><a href="#终端产生多标签和多标签切换快捷键" class="headerlink" title="终端产生多标签和多标签切换快捷键"></a>终端产生多标签和多标签切换快捷键</h1><p>打开一个terminal<br><code>ctrl+atl+t</code><br>在terminal中打开多个标签<br><code>ctrl+shift+t</code><br>在多个标签中切换方法：<br><code>1.atl+1 、atl + 2 、atl + 3 ...</code><br><code>2.ctrl + pageUp 、ctrl + pageDown</code><br>关闭一个标签<br><code>ctrl + d</code></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/10/ubuntu18小技巧/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/ubuntu提示没有libmpfr-so-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/10/ubuntu提示没有libmpfr-so-4/" itemprop="url">ubuntu提示没有libmpfr.so.4</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-09T21:54:02Z">
+                2019-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天在ubuntu18上安mstart平台uclibc的交叉编译器进行交叉编译时，<br>提示：error while loading shared libraries:libmpfr.so.4: cannot open shared object file: No such file or directory.</p>
+<p>解决：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/lib/x86_64-linux-gnu/libmpfr.so.6 /usr/lib/x86_64-linux-gnu/libmpfr.so.4</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/Visual-studio-Code快捷键/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/08/Visual-studio-Code快捷键/" itemprop="url">Visual studio Code快捷键</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-08T10:53:39Z">
+                2019-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vscode/" itemprop="url" rel="index">
+                    <span itemprop="name">vscode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="跳转定义返回快捷键"><a href="#跳转定义返回快捷键" class="headerlink" title="跳转定义返回快捷键"></a>跳转定义返回快捷键</h1><p>windows系统:<br>Alt+← .. navigate back<br>Alt+→ .. navigate forward</p>
+<p>Mac系统:<br>Ctrl+- .. navigate back<br>Ctrl+Shift+- .. navigate forward</p>
+<p>On Ubuntu Linux系统:<br>Ctrl+Alt+- .. navigate back<br>Ctrl+Shift+- .. navigate forward</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/08/Visual-studio-Code快捷键/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/交叉编译zlib与openssl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -632,8 +1026,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习-写作/" itemprop="url" rel="index">
-                    <span itemprop="name">学习,写作</span>
+                  <a href="/categories/Markdown/" itemprop="url" rel="index">
+                    <span itemprop="name">Markdown</span>
                   </a>
                 </span>
 
@@ -732,7 +1126,7 @@
 <h1 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2.基本语法</h1><h2 id="2-1-字体设置斜体、粗体、删除线"><a href="#2-1-字体设置斜体、粗体、删除线" class="headerlink" title="2.1 字体设置斜体、粗体、删除线"></a>2.1 字体设置斜体、粗体、删除线</h2><p><code>这里是正常文字 --&gt;&gt;</code> 这里是正常文字<br><code>**这里是加粗文字** --&gt;&gt;</code><strong>这里是加粗文字</strong><br><code>*这里是倾斜文字* --&gt;&gt;</code><em>这里是倾斜文字</em><br><code>_这里是倾斜文字_ --&gt;&gt;</code><em>这里是倾斜文字</em><br><code>***这里是加粗倾斜文字*** --&gt;&gt;</code><strong><em>这里是加粗倾斜文字</em></strong><br><code>~~这里是中划线文字~~ --&gt;&gt;</code><del>这里是中划线文字</del></p>
 <h2 id="2-2分级标题"><a href="#2-2分级标题" class="headerlink" title="2.2分级标题"></a>2.2分级标题</h2><h3 id="写法1"><a href="#写法1" class="headerlink" title="写法1"></a>写法1</h3><p><code># 一级标题，## 二级标题，### 三级标题，#### 四级标题，##### 五级标题，###### 六级标题</code></p>
 <h3 id="写法2"><a href="#写法2" class="headerlink" title="写法2"></a>写法2</h3><p>这是一个一级标题<br><code>=========================</code><br>或者<br>二级标题<br><code>-------------------------</code></p>
-<h2 id="2-3链接"><a href="#2-3链接" class="headerlink" title="2.3链接"></a>2.3链接</h2><p>1.插入本地图片链接<br><code>![插入本地图片](./703764-605e3cc2ecb664f6.jpg)</code><br>这样子需要把图片放到public中本篇博文index.html同级目录。<br><img src="./703764-605e3cc2ecb664f6.jpg" alt="插入本地图片"><br>2.插入网上图片<br><code>![图片名字](图片链接)</code><br>注: 可以把图片放到自己的github上进行链接，github和md文件关联的图片地址是有一定的格式的，其格式如下：<br><code>https://github.com/用户名/repository/仓库名/raw/分支名master/图片文件夹名称/xxx.png or xxx.jpg</code><br><!-- ![网上图片](https://github.com/Soldier-Sen/img/raw/master/markdown_node/markdown_4.jpg) --><br>3.自动链接<br>Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用&lt;&gt;包起来， Markdown 就会自动把它转成链接。也可以直接写，也是可以显示成链接形式的。<br>两种形式：<br><code>https://soldier-sen.github.io</code> <a href="https://soldier-sen.github.io" target="_blank" rel="noopener">https://soldier-sen.github.io</a><br><code>&lt;https://soldier-sen.github.io/&gt;</code>  <a href="https://soldier-sen.github.io/" target="_blank" rel="noopener">https://soldier-sen.github.io/</a></p>
+<h2 id="2-3链接"><a href="#2-3链接" class="headerlink" title="2.3链接"></a>2.3链接</h2><p>1.插入本地图片链接<br><code>![插入本地图片](./703764-605e3cc2ecb664f6.jpg)</code><br>这样子需要把图片放到public中本篇博文index.html同级目录。<br><img src="./703764-605e3cc2ecb664f6.jpg" alt="插入本地图片"><br>2.插入网上图片<br><code>![图片名字](图片链接)</code><br>注: 可以把图片放到自己的github上进行链接，github和md文件关联的图片地址是有一定的格式的，其格式如下：<br><code>https://github.com/用户名/repository/仓库名/raw/分支名master/图片文件夹名称/xxx.png or xxx.jpg</code><br><img src="https://github.com/Soldier-Sen/img/raw/master/markdown_node/markdown_4.jpg" alt="网上图片"><br>3.自动链接<br>Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用&lt;&gt;包起来， Markdown 就会自动把它转成链接。也可以直接写，也是可以显示成链接形式的。<br>两种形式：<br><code>https://soldier-sen.github.io</code> <a href="https://soldier-sen.github.io" target="_blank" rel="noopener">https://soldier-sen.github.io</a><br><code>&lt;https://soldier-sen.github.io/&gt;</code>  <a href="https://soldier-sen.github.io/" target="_blank" rel="noopener">https://soldier-sen.github.io/</a></p>
 <h2 id="2-4-分割线"><a href="#2-4-分割线" class="headerlink" title="2.4 分割线"></a>2.4 分割线</h2><p>你可以在一行中用三个以上的星号(*)、减号(-)、底线(_)来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
 <h2 id="2-5-代码块"><a href="#2-5-代码块" class="headerlink" title="2.5 代码块"></a>2.5 代码块</h2><p>对于程序员来说这个功能是必不可少的，插入程序代码的方式有两种，一种是利用缩进(tab), 另一种是利用英文“`”符号（一般在ESC键下方，和~同一个键）包裹代码。</p>
 <h2 id="（1）代码块：缩进-4-个空格或是-1-个制表符。效果如下"><a href="#（1）代码块：缩进-4-个空格或是-1-个制表符。效果如下" class="headerlink" title="（1）代码块：缩进 4 个空格或是 1 个制表符。效果如下:"></a>（1）代码块：缩进 4 个空格或是 1 个制表符。效果如下:</h2><pre><code>int main(int argc, char *argv[])
@@ -836,7 +1230,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -847,7 +1241,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -858,7 +1252,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
