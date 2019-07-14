@@ -2,7 +2,7 @@
 title: Markdown笔记
 date: 2019-05-03 00:15:05
 tags: [Markdown]
-categories: 学习,写作
+categories: Markdown
 ---
 # 概述
 Markdown 的目标是实现「易读易写」。
@@ -48,7 +48,7 @@ Markdown 的语法全由一些符号所组成，这些符号经过精挑细选�
 `![图片名字](图片链接)`
 注: 可以把图片放到自己的github上进行链接，github和md文件关联的图片地址是有一定的格式的，其格式如下：
 `https://github.com/用户名/repository/仓库名/raw/分支名master/图片文件夹名称/xxx.png or xxx.jpg`
-<!-- ![网上图片](https://github.com/Soldier-Sen/img/raw/master/markdown_node/markdown_4.jpg) -->
+![网上图片](https://github.com/Soldier-Sen/img/raw/master/markdown_node/markdown_4.jpg)
 3.自动链接
 Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用<>包起来， Markdown 就会自动把它转成链接。也可以直接写，也是可以显示成链接形式的。
 两种形式：

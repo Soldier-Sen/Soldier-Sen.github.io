@@ -20,6 +20,7 @@ Plugin 'tpope/vim-surround'
 
 注意：(括号, 左括号会加空格, 右括号不会)
 
+<!-- more -->
 示例
 ```
 # 替换

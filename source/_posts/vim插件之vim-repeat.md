@@ -13,6 +13,7 @@ categories: vim插件
 通过Bundle安装，在.vimrc中添加：
 >Bundle 'tpope/vim-repeat'
 然后BundleInstall安装即可。
+<!-- more -->
 
 示例，与surround结合使用。
 1)将如下"双引号都替换成'单引号
