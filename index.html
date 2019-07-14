@@ -377,19 +377,7 @@
       
         
           <p>类是面向对象程序设计的核心，它实际上是一种新的数据类型，也是实现抽象类型的工具，因为类是通过抽象数据类型的方法来实现一种数据类型。类是对某一类对象的抽象，而对象是某一种类的一个实例。</p>
-<h1 id="1-类的定义"><a href="#1-类的定义" class="headerlink" title="1 类的定义"></a>1 类的定义</h1><p>类的定义一般分为声明和实现部分。声明部分用来声明该类中的成员，包含数据成员的声明和成员函数的声明。成员函数是用来对数据成员进行操作的，又称“方法”。实现部分用来对成员函数进行定义。<br>概括的说，声明部分是用来告诉使用者“干什么”，而实现部分是告诉使用者“怎么干”。</p>
-<h2 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h2><p>C++中定义类的一般格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class &lt;类名&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public：</span><br><span class="line">        [&lt;公有型数据和函数&gt;]</span><br><span class="line">    private:</span><br><span class="line">        [&lt;私有型数据和函数&gt;]</span><br><span class="line">    protected：</span><br><span class="line">        [&lt;保护型数据和函数&gt;]</span><br><span class="line">&#125;；</span><br><span class="line">&lt;各个成员函数的实现&gt;</span><br></pre></td></tr></table></figure></p>
-<p>其中，class是定义类的关键字，class后面是用户定义的类名。<br>注意，类体中最后一个花括号后面的分号”；”不能省略。</p>
-<h2 id="1-2-访问权限"><a href="#1-2-访问权限" class="headerlink" title="1.2 访问权限"></a>1.2 访问权限</h2><p>类中的关键字public, private, protected声明了类中的成员与程序其他部分的（或类外)之间的关系，称为访问权限。<br>对 public 成员来说： 它们是公有的，能被外面的程序访问；<br>对 private 成员来说： 它们是私有的，不能被外面的程序访问，数据成员只能由类中的函数所使用，成员函数只允许在类中调用；<br>对 protected 成员来说： 它们是受保护的，具有半公开性，可以在类中或是子类中访问。</p>
-<h2 id="1-3-各成员函数的实现"><a href="#1-3-各成员函数的实现" class="headerlink" title="1.3 各成员函数的实现"></a>1.3 各成员函数的实现</h2><p>如果一个函数成员在类中定义，则其实现部分将不需要。当类的成员函数在类外定义时，必须由作用域运算符”::”来通知编译系统该函数所属的类。如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class CMeter</span><br><span class="line">&#123;</span><br><span class="line">    public:</span><br><span class="line">        double m_nPercent;      //声明一个公有数据成员</span><br><span class="line">        void StepIt();          //声明一个公有成员函数</span><br><span class="line">        void SetPos(int nPos);  //声明一个公有成员函数</span><br><span class="line">        int GetPos()</span><br><span class="line">        &#123;</span><br><span class="line">            return m_nPos;</span><br><span class="line">        &#125;   //定义一个公有成员函数并定义</span><br><span class="line">    private:</span><br><span class="line">        int m_nPos;             //声明一个私有数据成员</span><br><span class="line">&#125;；</span><br><span class="line">void CMeter::StepIt()</span><br><span class="line">&#123;</span><br><span class="line">    m_nPos++;</span><br><span class="line">&#125;</span><br><span class="line">void CMeter::SetPos(int nPos)</span><br><span class="line">&#123;</span><br><span class="line">    m_nPos = nPos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="1-4-注意"><a href="#1-4-注意" class="headerlink" title="1.4 注意"></a>1.4 注意</h2><p>1）类中的数据成员的类型可以是任意的，包含整形、浮点型、字符型、数组、指针和引用，也可以是另一个类的对象，但不允许对所定义的数据成员进行初始化，也不能指定除了static外的任何存储类型（register,auto,extern)。<br>2）在public, private或protected后面定义的所有成员都是公有的、私有的或保护的，直到下一个public, private或protected出现为止。若没有指定，则默认是private的。<br>3）关键字public, private, protected可以在类中出现多次，且前后顺序没有关系。但建议一般把public放前面。<br>4）进行类设计时，通常将数据声明为私有，而将大多数成员函数声明为公有的。这样类以外的代码就无法直接访问类的私有数据，从而实现了数据的封装。而公有成员函数可以为内部的私有数据成员提供外部接口。<br>5）尽量类单独放一个文件中，或将类的声明放在.h头文件中，其实现放在同名的.cpp文件中。</p>
-<h1 id="2-对象的定义"><a href="#2-对象的定义" class="headerlink" title="2 对象的定义"></a>2 对象的定义</h1><p>作为一种复杂的数据构造类型，类声明后就可以定义该类的对象。</p>
-<h2 id="2-1-定义方式"><a href="#2-1-定义方式" class="headerlink" title="2.1 定义方式"></a>2.1 定义方式</h2><p>与结构类型一样，它有三种定义方式<br>1）声明之后定义；<br>2）声明之时定义；<br>3）一次性定义；<br>但是为了提高程序的可读性，在程序中应尽量在对象的声明之后定义方式，一般格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;类名&gt;&lt;对象名表&gt;；</span><br></pre></td></tr></table></figure></p>
-<p>其中，类名是已经定义过的类的标识符，对象名可以有一个或是多个，多个是要用逗号分格。被类定义的对象可以是一个普通对象，也可以是一个数组或指针对象。例如：<br>    CMeter myMeter, *pMeter, Meters[2];<br>这时，myMeter是一个普通对象，*pMeter是一个指针对象，Meters[2]是一个数组对象。</p>
-<h2 id="2-2-对象的成员"><a href="#2-2-对象的成员" class="headerlink" title="2.2 对象的成员"></a>2.2 对象的成员</h2><p>一个对象的成员就是该对象的类所定义的数据成员和成员函数。访问对象的成员和函数成员：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;对象名&gt;.&lt;成员变量&gt;</span><br><span class="line">&lt;对象名&gt;.&lt;成员函数&gt;()</span><br></pre></td></tr></table></figure></p>
-<p>例如： myMeter.m_nPercent, myMeter.SetIt(), Meters[1].SetPos(2).<br>需要说明的是，一个类的对象只能访问该类的公有型成员，而对于私有型成员则不能访问。<br>\t若对象是一个指针，则对象的成员访问形式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;对象指针名&gt;-&gt;&lt;成员变量&gt;</span><br><span class="line">&lt;对象指针名&gt;-&gt;&lt;成员函数&gt;(参数表)</span><br></pre></td></tr></table></figure></p>
-<p>其中，下面的两种表示是等价的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;对象指针名&gt;-&gt;&lt;成员变量&gt;</span><br><span class="line">(*&lt;对象指针名&gt;).&lt;成员变量&gt;</span><br></pre></td></tr></table></figure></p>
-<p>另外，对于引用类型对象，其成员访问形式与一般对象的成员访问形式相同。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CMeter &amp;other = one;</span><br><span class="line">cout &lt;&lt; other.GetPos() &lt;&lt; endl;</span><br></pre></td></tr></table></figure></p>
+<h1 id="1-类的定义"><a href="#1-类的定义" class="headerlink" title="1 类的定义"></a>1 类的定义</h1><p>类的定义一般分为声明和实现部分。声明部分用来声明该类中的成员，包含数据成员的声明和成员函数的声明。成员函数是用来对数据成员进行操作的，又称“方法”。实现部分用来对成员函数进行定义。<br>概括的说，声明部分是用来告诉使用者“干什么”，而实现部分是告诉使用者“怎么干”。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/07/14/C++类和对象的定义/#more" rel="contents">
@@ -399,7 +387,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -443,7 +431,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/13/ubuntu-16安装ssh/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/13/ubuntu常用环境搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="微醺">
@@ -462,7 +450,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/13/ubuntu-16安装ssh/" itemprop="url">ubuntu 16安装ssh</a></h1>
+                <a class="post-title-link" href="/2019/07/13/ubuntu常用环境搭建/" itemprop="url">ubuntu 常用环境搭建</a></h1>
         
 
         <div class="post-meta">
@@ -535,14 +523,17 @@
 
       
         
-          
-            <p>Ubuntu 16安装ssh远程登录</p>
-<p>1.安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openssh-server</span><br></pre></td></tr></table></figure></p>
-
-          
+          <h1 id="1-Ubuntu-安装远程登录-ssh-服务端"><a href="#1-Ubuntu-安装远程登录-ssh-服务端" class="headerlink" title="1 Ubuntu 安装远程登录 ssh 服务端"></a>1 Ubuntu 安装远程登录 ssh 服务端</h1><p>Secure shell（ssh）是一种加密网络协议，用于在不安全的网络上安装运行网络服务，利用ssh可以实现加密并且安全的登录计算机中。<br>ubuntu系统默认只安装了ssh客户端，只能在本地登录到远端的目标主机中，想要实现其他主机远程登录自己，需要安装部署ssh服务端。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/13/ubuntu常用环境搭建/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
