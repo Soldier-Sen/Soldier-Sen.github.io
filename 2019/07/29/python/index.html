@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="微醺的博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Python是一种面向对象的解释性高级编程语言， 具有动态语义。 除法运算的结果为浮点数，1/2 得到0.5， 如果想舍弃小数只留整数，则用双斜杠1//2,向下取整。对于整除运算， 需要明白的一个重点是它向下圆整结果。 因此在结果为负数的情况下， 圆整后将离0更远。 这意味着对于-10 // 3， 将向下圆整到-4， 而不是向上圆整到-3。 乘方运算符的优先级比求负（单目减） 高， 因此-32等价">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微醺的博客">
+<meta property="og:url" content="http://yoursite.com/2019/07/29/python/index.html">
+<meta property="og:site_name" content="微醺的博客">
+<meta property="og:description" content="Python是一种面向对象的解释性高级编程语言， 具有动态语义。 除法运算的结果为浮点数，1/2 得到0.5， 如果想舍弃小数只留整数，则用双斜杠1//2,向下取整。对于整除运算， 需要明白的一个重点是它向下圆整结果。 因此在结果为负数的情况下， 圆整后将离0更远。 这意味着对于-10 // 3， 将向下圆整到-4， 而不是向上圆整到-3。 乘方运算符的优先级比求负（单目减） 高， 因此-32等价">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-28T16:13:12.695Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微醺的博客">
+<meta name="twitter:description" content="Python是一种面向对象的解释性高级编程语言， 具有动态语义。 除法运算的结果为浮点数，1/2 得到0.5， 如果想舍弃小数只留整数，则用双斜杠1//2,向下取整。对于整除运算， 需要明白的一个重点是它向下圆整结果。 因此在结果为负数的情况下， 圆整后将离0更远。 这意味着对于-10 // 3， 将向下圆整到-4， 而不是向上圆整到-3。 乘方运算符的优先级比求负（单目减） 高， 因此-32等价">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/29/python/">
+
+
+
+
+
+  <title> | 微醺的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">微醺的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-29T00:13:12+08:00">
+                2019-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Python是一种面向对象的解释性高级编程语言， 具有动态语义。</p>
+<p>除法运算的结果为浮点数，1/2 得到0.5， 如果想舍弃小数只留整数，则用双斜杠1//2,向下取整。<br>对于整除运算， 需要明白的一个重点是它向下圆整结果。 因此在结果为负数的情况下， 圆整后将离0更远。 这意味着对于-10 // 3， 将向下圆整到-4， 而不是向上圆整到-3。</p>
+<p>乘方运算符的优先级比求负（单目减） 高， 因此-3<strong>2等价于-(3</strong>2)。 如果你要计算的是(-3)**2， 必须明确指出。</p>
+<h2 id="1-6-获取用户输入"><a href="#1-6-获取用户输入" class="headerlink" title="1.6 获取用户输入"></a>1.6 获取用户输入</h2><p>input函数，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = input(&quot;x: &quot;)</span><br><span class="line">x: 4</span><br><span class="line">&gt;&gt;&gt; y = input(&quot;y: &quot;)</span><br><span class="line">y: 10</span><br><span class="line">&gt;&gt;&gt; print(int(x) * int(y))</span><br><span class="line">40</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-7-乘方运算"><a href="#1-7-乘方运算" class="headerlink" title="1.7 乘方运算"></a>1.7 乘方运算</h2><p>pow（x, y）函数，<br>abs（)求绝对值， round()函数将浮点数圆整为最接近的整数。floor()向下圆整.</p>
+<h2 id="1-8-模块"><a href="#1-8-模块" class="headerlink" title="1.8 模块"></a>1.8 模块</h2><p>import命令来导入模块，如： import math, 然后可以使用模块内的函数math.floor(-4.5)<br>ceil()函数返回大于或者等于给定数的最小整数。</p>
+<p>通过使用命令import的变种from module import function， 可在调用函数时不指定模块前缀。<br>如，from math import sqrt 调用sqrt()函数时，可以免输入模块名。<br>事实上， 可使用变量来引用函数（以及其他大部分Python元素） 。 执行赋值语句foo = math.sqrt后，就可使用foo来计算平方根<br>但是这种方式容易引起命名冲突，很隐晦，建议使用import完整导入模块。</p>
+<p>python本身提供了对复数的支持<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; (1 + 3j) * (9 + 4j)</span><br><span class="line">(-3+31j)</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-2-通用的序列操作"><a href="#2-2-通用的序列操作" class="headerlink" title="2.2 通用的序列操作"></a>2.2 通用的序列操作</h2><p>索引、 切片、 相加、 相乘和成员资格检查, Pyhton还提供了一些内置函数,可用于确定序列的长度以及找出序列中最大和最小的元素.</p>
+<ol start="9">
+<li>remove, 用于删除第一个为指定值的元素.</li>
+<li>reverse, 按相反的顺序排列列表中的元素, 修改但是不返回任何值.reversed按相反的顺序返回迭代序列,可以用list将返回的对象转换为列表.</li>
+<li>sort, 用于对列表就地排序,即对原来的列表进行修改,不返回排序后的列表副本.sorted可以返回排序后的列表副本.</li>
+</ol>
+<h2 id="2-4-元组-不可修改的序列"><a href="#2-4-元组-不可修改的序列" class="headerlink" title="2.4 元组: 不可修改的序列"></a>2.4 元组: 不可修改的序列</h2><p>元组通常用圆括号括起来.<br>tuple函数(其实的一个类型, 不是函数)将一个序列作为参数,并将其转换为元组.</p>
+<h1 id="3使用字符串"><a href="#3使用字符串" class="headerlink" title="3使用字符串"></a>3使用字符串</h1><p>字符串格式设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &quot;The number is &#123;num&#125;&quot;.format(num=42)</span><br><span class="line">&apos;The number is 42&apos;</span><br><span class="line">&gt;&gt;&gt; &quot;The number is &#123;num:f&#125;&quot;.format(num=42)</span><br><span class="line">&apos;The number is 42.000000&apos;</span><br><span class="line">&gt;&gt;&gt; &quot;The number is &#123;num:.2f&#125;&quot;.format(num=42)</span><br><span class="line">&apos;The number is 42.00&apos;</span><br><span class="line">&gt;&gt;&gt; &quot;The number is &#123;num:b&#125;&quot;.format(num=42)</span><br><span class="line">&apos;The number is 101010&apos;</span><br><span class="line">&gt;&gt;&gt; &quot;The number is &#123;num:c&#125;&quot;.format(num=42)</span><br><span class="line">&apos;The number is *&apos;</span><br><span class="line">&gt;&gt;&gt; &quot;The number is &#123;num:e&#125;&quot;.format(num=42)</span><br><span class="line">&apos;The number is 4.200000e+01&apos;</span><br></pre></td></tr></table></figure></p>
+<p>类型   含义<br>b 将整数表示为二进制数<br>c 将整数解读为Unicode码点<br>d 将整数视为十进制数进行处理， 这是整数默认使用的说明符<br>e 使用科学表示法来表示小数（用e来表示指数）<br>E 与e相同， 但使用E来表示指数<br>f 将小数表示为定点数<br>F 与f相同， 但对于特殊值（nan和inf） ， 使用大写表示<br>g 自动在定点表示法和科学表示法之间做出选择。 这是默认用于小数的说明符，但在默认情况下至少有1位小数<br>G 与g相同， 但使用大写来表示指数和特殊值<br>n 与g相同， 但插入随区域而异的数字分隔符<br>o 将整数表示为八进制数<br>s 保持字符串的格式不变， 这是默认用于字符串的说明符<br>x 将整数表示为十六进制数并使用小写字母<br>X 与x相同， 但使用大写字母<br>% 将数表示为百分比值（乘以100， 按说明符f设置格式， 再在后面加上%）</p>
+<h2 id="3-4字符串方法"><a href="#3-4字符串方法" class="headerlink" title="3.4字符串方法"></a>3.4字符串方法</h2><p>center, 在两边添加填充字符(默认空格)让字符串居中<br>find, 在字符串中查找子串,如果找到返回第一个字符的索引,否则返回-1.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/18/Linux-命令-ls-cd-pwd/" rel="next" title="Linux 命令 -- ls cd pwd">
+                <i class="fa fa-chevron-left"></i> Linux 命令 -- ls cd pwd
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/03/Docker-入门简介/" rel="prev" title="Docker 入门简介">
+                Docker 入门简介 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">微醺</p>
+              <p class="site-description motion-element" itemprop="description">科技浪潮中的一个小兵</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Soldier-Sen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:soldierhansen@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.google.com" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zh-cn.facebook.com/" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-获取用户输入"><span class="nav-number">1.</span> <span class="nav-text">1.6 获取用户输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-乘方运算"><span class="nav-number">2.</span> <span class="nav-text">1.7 乘方运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-模块"><span class="nav-number">3.</span> <span class="nav-text">1.8 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-通用的序列操作"><span class="nav-number">4.</span> <span class="nav-text">2.2 通用的序列操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-元组-不可修改的序列"><span class="nav-number">5.</span> <span class="nav-text">2.4 元组: 不可修改的序列</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#3使用字符串"><span class="nav-number"></span> <span class="nav-text">3使用字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4字符串方法"><span class="nav-number">1.</span> <span class="nav-text">3.4字符串方法</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">微醺</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

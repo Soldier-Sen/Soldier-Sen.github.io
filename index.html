@@ -284,6 +284,1254 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/06/vim-插入模式技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/06/vim-插入模式技巧/" itemprop="url">vim - 插入模式技巧</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-05T23:33:37Z">
+                2019-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vim技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">vim技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="插入模式只专注于做一件事-那就是输入文字"><a href="#插入模式只专注于做一件事-那就是输入文字" class="headerlink" title="插入模式只专注于做一件事, 那就是输入文字."></a>插入模式只专注于做一件事, 那就是输入文字.</h2><h1 id="1-插入模式中及时更正错误"><a href="#1-插入模式中及时更正错误" class="headerlink" title="1 插入模式中及时更正错误"></a>1 插入模式中及时更正错误</h1><p>如果在插入模式下输入错误时,正常可以用退格键删除错误文本.它会如我们所愿的删除光标前的字符.另外我们还可以使用下面一些组合键:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">按键操作</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;C-h&gt; <c-h></c-h></td>
+<td style="text-align:center">删除前一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;C-w></td>
+<td style="text-align:center">删除前一个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;C-u></td>
+<td style="text-align:center">删除至行首</td>
+</tr>
+</tbody>
+</table>
+<p>这些命令不是插入模式所独有的，甚至也不是 Vim 所独有的，在 Vim 的命令行模式中，以及在 bash shell 中，也可以使用它们。</p>
+<h1 id="2-返回普通模式"><a href="#2-返回普通模式" class="headerlink" title="2 返回普通模式"></a>2 返回普通模式</h1><p>切换回普通模式的经典方式是使用 <esc> 键， 但在许多键盘上这个键的距离可能有点远。作为替代，我们也可以用 &lt;C-[&gt; ，它的效果与 <esc> 完全相同.<br>详情可参见: h i_CTRL-[</esc></esc></p>
+<p>图:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">按键操作</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;Esc></td>
+<td style="text-align:center">返回普通模式</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;C-[></td>
+<td style="text-align:center">删除前一个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;C-o></td>
+<td style="text-align:center">切换到插入-普通模式</td>
+</tr>
+</tbody>
+</table>
+<p>刚开始使用 vim 时可能会觉得不断地切换模式比较烦, 但是使用一段时间后就会慢慢上手了.</p>
+<h2 id="2-1-插入-普通模式"><a href="#2-1-插入-普通模式" class="headerlink" title="2.1 插入 - 普通模式"></a>2.1 插入 - 普通模式</h2><p>插入-普通模式是普通模式的一个特例，它能让我们执行一次普遍模式命令。在此模式中，我们可以执行一个普通模式命令，执行完后，马上就又返回到插入模式。要从插入模式切换到插入-普通模式，可以按 &lt;C-o><br>参见: i_CTRL-O</p>
+<p>例如, 当我们正在窗口的顶行或是底行时, 想看到更多的上下文, 在普通模式我们可以 zz 重绘窗口并把当前行显示在窗口的正中间. 所以我们可以使用命令: <code>&lt;C-o&gt;zz</code> 这样可以不受中断的继续打字.</p>
+<h1 id="3-不离开插入模式-粘贴寄存器中的文本"><a href="#3-不离开插入模式-粘贴寄存器中的文本" class="headerlink" title="3 不离开插入模式, 粘贴寄存器中的文本"></a>3 不离开插入模式, 粘贴寄存器中的文本</h1><p>Vim 的复制和粘贴操作一般都在普通模式中执行，不过有时我们也许想不离开插入模式，就能往文档里粘贴文本。</p>
+<p>在插入模式中, 按&lt;C-r>{register}把寄存器中的内容插入到文件中. 其中register是我们想要插入的寄存器的名字. (参见: h i_CTRL-R). 在插入模式中，可以用<c-r>{register} 命令很方便地粘贴几个单词。可是如果寄存器中包含了大量的文本， 你也许会发现屏幕的更新有些轻微的延时。 这是因为 Vim在插入寄存器内的文本时，其插入方式就如同这些文本是由键盘上一个个输进来的。因此，如果 ‘textwidth’ 或者‘autoindent’ 选项被激活了的话，那么最终就可能会出现不必要的换行或额外的缩进。&lt;C-r>&lt;C-p>{register} 命令则会更智能一些，它会按原义插入寄存器内的文本. </c-r></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">重新映射大小写转换键(Caps Lock)</span><br><span class="line">------------------------------------------</span><br></pre></td></tr></table></figure>
+<h1 id="4-使用表达式寄存器做运算"><a href="#4-使用表达式寄存器做运算" class="headerlink" title="4 使用表达式寄存器做运算"></a>4 使用表达式寄存器做运算</h1><p>表达式寄存器允许我们做一些运算，并把运算结果直接插入到文档中。</p>
+<p>大部分的 Vim寄存器中保存的都是文本, 不过表达式寄存器则是个另类, 它可以用来执行一段 Vim 脚本, 并返回其结果.</p>
+<p>我们可以用 = 符号指明使用表达式寄存器。在插入模式中，输入 &lt;C-r>= 就可以访问这一寄存器。这条命令会在屏幕的下方显示一个提示符，我们可以在其后输入要执行的表达式。输入表达式后敲一下 &lt;CR>， Vim 就会把执行的结果插入到文档的当前位置了。<br>示例文本:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6 chairs, each costing $35, totals $</span><br></pre></td></tr></table></figure></p>
+<p>当光标处于当前行时, 可以输入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A  </span><br><span class="line">&lt;C-r&gt;=6*35&lt;CR&gt;</span><br></pre></td></tr></table></figure></p>
+<p>||–&gt;&gt; A 将光标移到行尾并进入插入模式<br>||–&gt;&gt; 调用表达式寄存器, 并返回6*35的计算结果到光标当前位置.</p>
+<p>当然, 表达式寄存器不仅仅可以用来做运算, 还有其他更高级的应用. </p>
+<h1 id="5-用字符编码插入非常用字符"><a href="#5-用字符编码插入非常用字符" class="headerlink" title="5 用字符编码插入非常用字符"></a>5 用字符编码插入非常用字符</h1><h1 id="6-用二和字母插入非常用字符"><a href="#6-用二和字母插入非常用字符" class="headerlink" title="6 用二和字母插入非常用字符"></a>6 用二和字母插入非常用字符</h1><h1 id="7-用替换模式替换已有文本"><a href="#7-用替换模式替换已有文本" class="headerlink" title="7 用替换模式替换已有文本"></a>7 用替换模式替换已有文本</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/31/vim-的拼写检查器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/31/vim-的拼写检查器/" itemprop="url">vim 的拼写检查器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-30T22:55:36Z">
+                2019-08-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vim技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">vim技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>人们需要一些时间把锯子磨锋利.</p>
+<h1 id="利用vim的拼写检查器-查找并更正拼写错误"><a href="#利用vim的拼写检查器-查找并更正拼写错误" class="headerlink" title="利用vim的拼写检查器,查找并更正拼写错误"></a>利用vim的拼写检查器,查找并更正拼写错误</h1><h2 id="开启和关闭拼写检查"><a href="#开启和关闭拼写检查" class="headerlink" title="开启和关闭拼写检查"></a>开启和关闭拼写检查</h2><p>1.开启<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">: set spell</span><br></pre></td></tr></table></figure></p>
+<p>2.关闭<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">: set nospell</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/31/vim-的拼写检查器/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/Linux-线程同步和互斥/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/18/Linux-线程同步和互斥/" itemprop="url">Linux-线程同步和互斥</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T06:41:58Z">
+                2019-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux多线程编程/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux多线程编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Linux线程基础—-线程同步与互斥"><a href="#Linux线程基础—-线程同步与互斥" class="headerlink" title="Linux线程基础—-线程同步与互斥"></a>Linux线程基础—-线程同步与互斥</h2><h1 id="1-同步的概念"><a href="#1-同步的概念" class="headerlink" title="1.同步的概念"></a>1.同步的概念</h1><h2 id="1-1-同步概念"><a href="#1-1-同步概念" class="headerlink" title="1.1 同步概念"></a>1.1 同步概念</h2><p>所谓同步,即同时起步,协调一致.不同的对象,对”同步”的理解方式不同. 如: 设备同步是指两个设备之间规定一个共同的时间参考; 数据库同步,是指让两个或多个数据库保持一致,或者按需要部分保持一致; 文件同步,是指让两个或多个文件夹里的文件保持一致等等.而编程中,通信中所说的同步与生活中大家印象中的同步略有差异.”同”是指协同,协助,互助配合.主旨在协同步调,按预定顺序先后次序运行.</p>
+<h2 id="1-2-数据混乱的原因"><a href="#1-2-数据混乱的原因" class="headerlink" title="1.2 数据混乱的原因"></a>1.2 数据混乱的原因</h2><pre><code>1) 资源共享(独享资源不存在此问题)
+2) 调度随机, 即意味着数据访问会出现竞争
+3) 线程间缺乏必要的同步机制.
+</code></pre><p>前面两点不能改变,欲提高效率,传递数据资源必须共享.只要共享资源就一定会出现竞争.只要存在竞争关系，数据就很容易出现混乱。所以只能从第三点着手解决。使多个线程在访问共享资源的时候，出现互斥。</p>
+<h1 id="3-线程同步"><a href="#3-线程同步" class="headerlink" title="3.线程同步"></a>3.线程同步</h1><pre><code>是一个宏观概念,在微观上包含线程的相互排斥和线程先后执行的约束问题.
+同步即协同步调,按预定的先后次序运行.
+线程同步指一个线程发出某一功能调用时, 在没有得到结果前,该调用不返回. 同时其他线程为保证数据一致性,不能调用该功能. 如: A任务的运行依赖于B任务产生的数据.
+目的: 是为了避免数据混乱,解决与时间有关的错误.实际上,不仅线程间需要同步,进程间,信号间等都需要同步. 因此, 所有&quot;多个控制流,共同操作一个共享资源&quot;的情况,都需要同步.
+
+解决同步办法: 条件变量, 线程信号量
+</code></pre><h1 id="2-线程同步手段"><a href="#2-线程同步手段" class="headerlink" title="2.线程同步手段"></a>2.线程同步手段</h1><h2 id="线程互斥"><a href="#线程互斥" class="headerlink" title="线程互斥"></a>线程互斥</h2><p>线程执行的相互排斥.<br>散步在不同任务之间的若干程序片断，当某个任务运行其中一个程序片段时，其它任务就不能运行它们之中的任一程序片段，只能等到该任务运行完这个程序片段后才可以运行。最基本的场景就是：一个公共资源同一时刻只能被一个进程或线程使用，多个进程或线程不能同时使用公共资源。<br>解决互斥方式: 互斥锁,读写锁,线程信号量</p>
+<h3 id="互斥锁创建和销毁"><a href="#互斥锁创建和销毁" class="headerlink" title="互斥锁创建和销毁"></a>互斥锁创建和销毁</h3><pre><code>#include &lt;pthread.h&gt;
+//创建快速互斥锁.
+pthread_mutex_t fastmutex = PTHREAD_MUTEX_INITIALIZER;
+//创建递归互斥锁.
+pthread_mutex_t recmutex = PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP;
+//创建检错互斥锁.
+pthread_mutex_t errchkmutex = PTHREAD_ERRORCHECK_MUTEX_INITIALIZER_NP;
+
+//创建并初始化一个互斥锁
+int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *mutexattr);
+//功能:上锁
+int pthread_mutex_lock(pthread_mutex_t *mutex);
+//功能:尝试上锁,拿不到锁返回出错信息
+int pthread_mutex_trylock(pthread_mutex_t *mutex);
+//功能:释放锁
+int pthread_mutex_unlock(pthread_mutex_t *mutex); ///成功返回0,出错返回出错码
+
+//销毁互斥锁
+int pthread_mutex_destroy(pthread_mutex_t *mutex);
+
+参数: 
+mutex: 互斥锁.
+mutexattr: 互斥锁创建方式.
+</code></pre><h4 id="互斥锁属性创建和销毁"><a href="#互斥锁属性创建和销毁" class="headerlink" title="互斥锁属性创建和销毁"></a>互斥锁属性创建和销毁</h4><pre><code>#include &lt;pthread.h&gt;
+int pthread_mutexattr_init(pthread_mutexattr_t *attr);    
+int pthread_mutexattr_destroy(pthread_mutexattr_t *attr);
+
+互斥锁类型操纵
+[mutex_lock_type.c]
+int pthread_mutexattr_settype(pthread_mutexattr_t *attr, int kind);
+int pthread_mutexattr_gettype(const pthread_mutexattr_t *attr, int *kind);
+attr: 互斥锁属性;
+type: 互斥锁类型: 
+    1)标准互斥锁: PTHREAD_MUTEX_NORMAL, 第一次上锁成功,第二次上锁会阻塞.
+    2)递归互斥锁: PTHREAD_MUTEX_RECURSIVE, 第一次上锁成功,第二次上锁还是成功,内部计数.
+    3)检错互斥锁: PTHREAD_MUTEX_ERRORCHECK, 第一次上锁成功,第二次上锁出错.
+    4)默认互斥锁: PTHREAD_MUTEX_DEFAULT, 同标准互斥锁.
+
+互斥锁进程共享属性操作
+int pthread_mutexattr_getpshared(const pthread_mutexattr_t *restric attr, int *restrict pshared);
+int pthread_mutexattr_setpshared(pthread_mutexattr_t *attr, int pshared);
+返回: 成功返回0, 出错返回错误编号.
+线程共享属性:
+    PTHREAD_PROCESS_PRIVATE, 默认情况, 锁只能用于一个进程内部的两个线程进行互斥.
+    PTHREAD_PROCESS_SHARED, 锁可以用于两个不同进程中的线程进行互斥.
+缺点: 线程使用互斥锁缺乏读并发性.
+</code></pre><h4 id="线程互斥-读写锁"><a href="#线程互斥-读写锁" class="headerlink" title="线程互斥 - 读写锁"></a>线程互斥 - 读写锁</h4><pre><code>当读操作较多,写操作较少时,可使用读写锁提高线程读并发性.
+(1) 创建和销毁
+#include &lt;pthread.h&gt; 
+int pthread_rwlock_init(pthread_rwlock_t *rwlock, const pthread_rwlockattr_t *restrict attr);   
+int pthread_rwlock_destroy(pthrad_rwlock_t *rwlock);
+pthread_rwlock_t rwlock = PTHREAD_RWLOCK_INITIALIZER;
+
+(2) 读写锁加锁和解锁
+int pthread_rwlock_rdlock(pthread_rwlock_t *rwlock); //加读锁
+int pthread_rwlock_tryrdlock(pthread_rwlock_t *rwlock);
+int pthread_rwlock_wrlock(pthread_rwlock_t *rwlock); //写加锁
+int pthread_rwlock_unlock(phtread_rwlock_t *rwlock); //释放锁
+成功返回0, 失败返回错误编号.
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/Linux-线程属性初始化-销毁-设置和获得分离属性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/12/Linux-线程属性初始化-销毁-设置和获得分离属性/" itemprop="url">Linux 线程属性初始化,销毁,设置和获得分离属性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-12T07:31:04Z">
+                2019-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux多线程编程/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux多线程编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="线程属性初始化和销毁"><a href="#线程属性初始化和销毁" class="headerlink" title="线程属性初始化和销毁"></a>线程属性初始化和销毁</h1><pre><code>#include &lt;pthread.h&gt;
+int pthread_attr_init(pthread_attr_t *attr);
+int pthread_attr_destroy(pthread_attr_t *attr);
+</code></pre><p>在pthread_create函数的第二个参数就是线程属性.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/12/Linux-线程属性初始化-销毁-设置和获得分离属性/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/Linux-线程清理和控制函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/12/Linux-线程清理和控制函数/" itemprop="url">Linux 线程清理和控制函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-12T06:14:51Z">
+                2019-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux多线程编程/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux多线程编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="清理函数和控制函数"><a href="#清理函数和控制函数" class="headerlink" title="清理函数和控制函数"></a>清理函数和控制函数</h2><p>这一对一般是成对出现的</p>
+<p>#include &lt;pthread.h&gt;<br>void pthread_cleanup_push(void (<em>routine)(void </em>),void *arg);<br>参数:<br>    routine: 清理函数指针<br>    arg: 调用清理函数传递的参数<br>void pthread_cleanup_pop(int execute);<br>参数:<br>    execute:值1时执行清理函数,值0时不执行线程清理函数.</p>
+<h2 id="触发线程调用清理函数的动作"><a href="#触发线程调用清理函数的动作" class="headerlink" title="触发线程调用清理函数的动作"></a>触发线程调用清理函数的动作</h2><pre><code>1)调用pthread_exit
+2)相应取消请求
+3)用非零execute参数调用pthread_cleanup_pop时
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/12/Linux-线程清理和控制函数/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/doxygen-安装与使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/08/doxygen-安装与使用/" itemprop="url">doxygen 安装与使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-08T00:39:48Z">
+                2019-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装方式1:<br>下载源码: <a href="http://www.doxygen.nl/download.html" target="_blank" rel="noopener">http://www.doxygen.nl/download.html</a><br>doxygen-1.8.15.linux.bin.tar.gz<br>tar xf doxygen-1.8.15.src.tar.gz<br>cd doxygen-1.8.15</p>
+<p>使用stow安装管理<br>./configure –prefix /usr/local/stow/doxygen<br>编译与安装doxygen到stow<br>sudo make install<br>至此，doxygen 程序已安装在/usr/local/stow/doxygen/中<br>cd /usr/local/stow<br>sudo stow doxygen<br>doxygen包中包含的所有文件和目录已经符号链接到目录/usr/local/<br>验证, doxygen -v 出现如下信息,说明已经成功.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hhs@ubuntu:doxygen-1.8.15$ doxygen -v</span><br><span class="line">1.8.15</span><br></pre></td></tr></table></figure></p>
+<p>当你想移除doxygen时,可以在/usr/local/stow目录下执行, stow –delete doxygen进行移除.</p>
+<p>安装方式2:<br>git clone <a href="https://github.com/doxygen/doxygen.git" target="_blank" rel="noopener">https://github.com/doxygen/doxygen.git</a><br>cd doxygen<br>mkdir build<br>cd build<br>cmake -G “Unix Makefiles” ..<br>make &amp;&amp; make install</p>
+<p>在安装方式1和方式2中, 方式2为官方安装方法, 安装方式1为个人喜欢使用的安装方式,使用stow管理安装的第三方工具,方便移除.</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/Docker-入门简介/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/03/Docker-入门简介/" itemprop="url">Docker 入门简介</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-03T15:11:46Z">
+                2019-08-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="什么是Docker？"><a href="#什么是Docker？" class="headerlink" title="什么是Docker？"></a>什么是Docker？</h1><p>1)Docker 是世界领先的软件容器平台。<br>2)Docker 使用 Google 公司推出的 Go 语言 进行开发实现，基于 Linux 内核 的cgroup，namespace，以及AUFS类的UnionFS等技术，对进程进行封装隔离，属于操作系统层面的虚拟化技术。 由于隔离的进程独立于宿主和其它的隔离的进 程，因此也称其为容器。Docke最初实现是基于 LXC.<br>3)Docker 能够自动执行重复性任务，例如搭建和配置开发环境，从而解放了开发人员以便他们专注在真正重要的事情上：构建杰出的软件。<br>4)用户可以方便地创建和使用容器，把自己的应用放入容器。容器还可以进行版本管理、复制、分享、修改，就像管理普通的代码一样。</p>
+<p>目前最新docker分为 docker-ce和docker-ee两个版本，其中ce为社区版免费的，ee为商业版商用的，目前测试用ce版本。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>sudo apt-get install -y docker.io<br>把用户加入到docker组,避免运行docker需要sudo权限.<br>sudo usermod -aG docker hhs</p>
+<h2 id="测试是否运行成功"><a href="#测试是否运行成功" class="headerlink" title="测试是否运行成功"></a>测试是否运行成功</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
+<p>如果出现:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Unable to find image &apos;hello-world:latest&apos; locally</span><br><span class="line">docker: Error response from daemon: Get https://registry-1.docker.io/v2/library/hello-world/manifests/latest: Get https://auth.docker.io/token?scope=repository%3Alibrary%2Fhello-world%3Apull&amp;service=registry.docker.io: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers).</span><br><span class="line">See &apos;docker run --help&apos;.</span><br></pre></td></tr></table></figure></p>
+<p>这是因为docker在本地没有找到hello-world镜像，也没有从docker仓库中拉取镜像，出现这个问题的原因：是应为docker服务器在国外，我们在国内无法正常拉取镜像，所以就需要我们为docker设置国内阿里云的镜像加速器；所以需要增加/etc/docker/daemon.json配置文件设置为阿里云镜像.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">&quot;registry-mirrors&quot;: [&quot;https://alzgoonw.mirror.aliyuncs.com&quot;] </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果出现如下打印,说明成功.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"> $ docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br></pre></td></tr></table></figure></p>
+<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/29/python/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-28T16:13:12Z">
+                2019-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Python是一种面向对象的解释性高级编程语言， 具有动态语义。</p>
+<p>除法运算的结果为浮点数，1/2 得到0.5， 如果想舍弃小数只留整数，则用双斜杠1//2,向下取整。<br>对于整除运算， 需要明白的一个重点是它向下圆整结果。 因此在结果为负数的情况下， 圆整后将离0更远。 这意味着对于-10 // 3， 将向下圆整到-4， 而不是向上圆整到-3。</p>
+<p>乘方运算符的优先级比求负（单目减） 高， 因此-3<strong>2等价于-(3</strong>2)。 如果你要计算的是(-3)**2， 必须明确指出。</p>
+<h2 id="1-6-获取用户输入"><a href="#1-6-获取用户输入" class="headerlink" title="1.6 获取用户输入"></a>1.6 获取用户输入</h2><p>input函数，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = input(&quot;x: &quot;)</span><br><span class="line">x: 4</span><br><span class="line">&gt;&gt;&gt; y = input(&quot;y: &quot;)</span><br><span class="line">y: 10</span><br><span class="line">&gt;&gt;&gt; print(int(x) * int(y))</span><br><span class="line">40</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-7-乘方运算"><a href="#1-7-乘方运算" class="headerlink" title="1.7 乘方运算"></a>1.7 乘方运算</h2><p>pow（x, y）函数，<br>abs（)求绝对值， round()函数将浮点数圆整为最接近的整数。floor()向下圆整.</p>
+<h2 id="1-8-模块"><a href="#1-8-模块" class="headerlink" title="1.8 模块"></a>1.8 模块</h2><p>import命令来导入模块，如： import math, 然后可以使用模块内的函数math.floor(-4.5)<br>ceil()函数返回大于或者等于给定数的最小整数。</p>
+<p>通过使用命令import的变种from module import function， 可在调用函数时不指定模块前缀。<br>如，from math import sqrt 调用sqrt()函数时，可以免输入模块名。<br>事实上， 可使用变量来引用函数（以及其他大部分Python元素） 。 执行赋值语句foo = math.sqrt后，就可使用foo来计算平方根<br>但是这种方式容易引起命名冲突，很隐晦，建议使用import完整导入模块。</p>
+<p>python本身提供了对复数的支持<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; (1 + 3j) * (9 + 4j)</span><br><span class="line">(-3+31j)</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-2-通用的序列操作"><a href="#2-2-通用的序列操作" class="headerlink" title="2.2 通用的序列操作"></a>2.2 通用的序列操作</h2><p>索引、 切片、 相加、 相乘和成员资格检查, Pyhton还提供了一些内置函数,可用于确定序列的长度以及找出序列中最大和最小的元素.</p>
+<ol start="9">
+<li>remove, 用于删除第一个为指定值的元素.</li>
+<li>reverse, 按相反的顺序排列列表中的元素, 修改但是不返回任何值.reversed按相反的顺序返回迭代序列,可以用list将返回的对象转换为列表.</li>
+<li>sort, 用于对列表就地排序,即对原来的列表进行修改,不返回排序后的列表副本.sorted可以返回排序后的列表副本.</li>
+</ol>
+<h2 id="2-4-元组-不可修改的序列"><a href="#2-4-元组-不可修改的序列" class="headerlink" title="2.4 元组: 不可修改的序列"></a>2.4 元组: 不可修改的序列</h2><p>元组通常用圆括号括起来.<br>tuple函数(其实的一个类型, 不是函数)将一个序列作为参数,并将其转换为元组.</p>
+<h1 id="3使用字符串"><a href="#3使用字符串" class="headerlink" title="3使用字符串"></a>3使用字符串</h1><p>字符串格式设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &quot;The number is &#123;num&#125;&quot;.format(num=42)</span><br><span class="line">&apos;The number is 42&apos;</span><br><span class="line">&gt;&gt;&gt; &quot;The number is &#123;num:f&#125;&quot;.format(num=42)</span><br><span class="line">&apos;The number is 42.000000&apos;</span><br><span class="line">&gt;&gt;&gt; &quot;The number is &#123;num:.2f&#125;&quot;.format(num=42)</span><br><span class="line">&apos;The number is 42.00&apos;</span><br><span class="line">&gt;&gt;&gt; &quot;The number is &#123;num:b&#125;&quot;.format(num=42)</span><br><span class="line">&apos;The number is 101010&apos;</span><br><span class="line">&gt;&gt;&gt; &quot;The number is &#123;num:c&#125;&quot;.format(num=42)</span><br><span class="line">&apos;The number is *&apos;</span><br><span class="line">&gt;&gt;&gt; &quot;The number is &#123;num:e&#125;&quot;.format(num=42)</span><br><span class="line">&apos;The number is 4.200000e+01&apos;</span><br></pre></td></tr></table></figure></p>
+<p>类型   含义<br>b 将整数表示为二进制数<br>c 将整数解读为Unicode码点<br>d 将整数视为十进制数进行处理， 这是整数默认使用的说明符<br>e 使用科学表示法来表示小数（用e来表示指数）<br>E 与e相同， 但使用E来表示指数<br>f 将小数表示为定点数<br>F 与f相同， 但对于特殊值（nan和inf） ， 使用大写表示<br>g 自动在定点表示法和科学表示法之间做出选择。 这是默认用于小数的说明符，但在默认情况下至少有1位小数<br>G 与g相同， 但使用大写来表示指数和特殊值<br>n 与g相同， 但插入随区域而异的数字分隔符<br>o 将整数表示为八进制数<br>s 保持字符串的格式不变， 这是默认用于字符串的说明符<br>x 将整数表示为十六进制数并使用小写字母<br>X 与x相同， 但使用大写字母<br>% 将数表示为百分比值（乘以100， 按说明符f设置格式， 再在后面加上%）</p>
+<h2 id="3-4字符串方法"><a href="#3-4字符串方法" class="headerlink" title="3.4字符串方法"></a>3.4字符串方法</h2><p>center, 在两边添加填充字符(默认空格)让字符串居中<br>find, 在字符串中查找子串,如果找到返回第一个字符的索引,否则返回-1.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/18/Linux-命令-ls-cd-pwd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -326,6 +1574,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux-命令/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux 命令</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -354,7 +1624,7 @@
 
       
         
-          <h1 id="1-Linux-pwd-——-打印当前工作目录名"><a href="#1-Linux-pwd-——-打印当前工作目录名" class="headerlink" title="1 Linux pwd —— 打印当前工作目录名"></a>1 Linux pwd —— 打印当前工作目录名</h1><p>pwd - print name of current/working directory<br>Linux pwd命令用于显示工作目录。<br>执行pwd指令可立刻得知目前所在的工作目录的绝对路径名称。<br>
+          <h1 id="1-Linux-pwd-——-打印当前工作目录名"><a href="#1-Linux-pwd-——-打印当前工作目录名" class="headerlink" title="1 Linux pwd —— 打印当前工作目录名"></a>1 Linux pwd —— 打印当前工作目录名</h1><p>  pwd - print name of current/working directory<br>  Linux pwd命令用于显示工作目录。<br>  执行pwd指令可立刻得知目前所在的工作目录的绝对路径名称。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/07/18/Linux-命令-ls-cd-pwd/#more" rel="contents">
@@ -542,1252 +1812,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/13/ubuntu常用环境搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="微醺">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="微醺的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/13/ubuntu常用环境搭建/" itemprop="url">ubuntu 常用环境搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-13T14:10:24Z">
-                2019-07-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ubuntu环境/" itemprop="url" rel="index">
-                    <span itemprop="name">ubuntu环境</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="1-Ubuntu-安装远程登录-ssh-服务端"><a href="#1-Ubuntu-安装远程登录-ssh-服务端" class="headerlink" title="1 Ubuntu 安装远程登录 ssh 服务端"></a>1 Ubuntu 安装远程登录 ssh 服务端</h1><p>Secure shell（ssh）是一种加密网络协议，用于在不安全的网络上安装运行网络服务，利用ssh可以实现加密并且安全的登录计算机中。<br>ubuntu系统默认只安装了ssh客户端，只能在本地登录到远端的目标主机中，想要实现其他主机远程登录自己，需要安装部署ssh服务端。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/13/ubuntu常用环境搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/20/git免密码输入远程提交（ssh替换https/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="微醺">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="微醺的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/20/git免密码输入远程提交（ssh替换https/" itemprop="url">git免密码输入远程提交（ssh替换https)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-19T23:35:52Z">
-                2019-06-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git使用/" itemprop="url" rel="index">
-                    <span itemprop="name">git使用</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="一、生成并设置ssh公钥"><a href="#一、生成并设置ssh公钥" class="headerlink" title="一、生成并设置ssh公钥"></a>一、生成并设置ssh公钥</h1><p>linux 中执行命令 ssh-keygen， 在～/.ssh目录下生成id_rsa.pub文件，将文件的内容复制拷贝到git上。<br><img src="https://github.com/Soldier-Sen/img/raw/master/git%E8%AE%BE%E5%A4%87ssh%E5%85%AC%E9%92%A5.png" alt="设置ssh图片"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/20/git免密码输入远程提交（ssh替换https/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/12/linux-c时间编程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="微醺">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="微醺的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/12/linux-c时间编程/" itemprop="url">linux c时间编程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-11T23:12:23Z">
-                2019-06-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/时间编程/" itemprop="url" rel="index">
-                    <span itemprop="name">时间编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="1-Linux下常用时间类型有四种："><a href="#1-Linux下常用时间类型有四种：" class="headerlink" title="1. Linux下常用时间类型有四种："></a>1. Linux下常用时间类型有四种：</h1><pre><code>time_t 、struct  tm、struct  timeval 、struct  timespec
-</code></pre><h2 id="time-t-时间类型"><a href="#time-t-时间类型" class="headerlink" title="time_t 时间类型"></a>time_t 时间类型</h2><pre><code>#include &lt;time.h&gt;
-typedef    long  time_t
-</code></pre><p>说明  : 实际是一个长整型，其值表示从1970年1月1日00分00秒到当前时刻的秒数，由于time_t类型长度限制，在32位机子上，最大为0x7fffffff, 它表示的时间最大为Tue Jan 19 03:14:07 2038（GMT）。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/12/linux-c时间编程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/vim插件之vim-repeat/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="微醺">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="微醺的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/09/vim插件之vim-repeat/" itemprop="url">vim插件之vim-repeat</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-09T15:41:11Z">
-                2019-06-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vim插件/" itemprop="url" rel="index">
-                    <span itemprop="name">vim插件</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="vim-repeat"><a href="#vim-repeat" class="headerlink" title="vim-repeat"></a>vim-repeat</h1><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>重复一个插件的操作，支持surround.vim，通过surround操作之后的行为.号重复。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>通过Bundle安装，在.vimrc中添加：</p>
-<blockquote>
-<p>Bundle ‘tpope/vim-repeat’<br>然后BundleInstall安装即可。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/09/vim插件之vim-repeat/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></blockquote></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/vim插件之tags/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="微醺">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="微醺的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/09/vim插件之tags/" itemprop="url">vim插件之tags</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-09T14:37:25Z">
-                2019-06-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vim插件/" itemprop="url" rel="index">
-                    <span itemprop="name">vim插件</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="ctags找不到pthreadx相关函数"><a href="#ctags找不到pthreadx相关函数" class="headerlink" title="ctags找不到pthreadx相关函数"></a>ctags找不到pthreadx相关函数</h2><p>在生成ctags时，要使用命令：</p>
-<blockquote>
-<p>sudo ctags  -I <strong>THROW  -I </strong>THROWNL -I <strong>attribute_pure</strong> -I <strong>nonnull -I </strong>attribute__ -R –c-kinds=+p –fields=+iaS –extra=+q –language-force=C  /usr/include/</p>
-</blockquote>
-<p>否则ctags会不认识这些宏从而识别不了。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/vim文本对象介绍/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="微醺">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="微醺的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/09/vim文本对象介绍/" itemprop="url">vim文本对象介绍</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-09T12:18:52Z">
-                2019-06-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vim文本对象/" itemprop="url" rel="index">
-                    <span itemprop="name">vim文本对象</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>vim的文本对象(text object)由两个字符组成，第一个字符永远是i或是a。一般说来，以i开头的文本对象会选择包括分隔符在内的整个文本。<br>为了便于记忆，可以把i想成”inside”，而把a想成”around/all”。vim的文本对象主要用于扩大选区，将它与可视模式或surround结合起来使用将变得异常强大。</p>
-<h3 id="一些常用的文本对象"><a href="#一些常用的文本对象" class="headerlink" title="一些常用的文本对象"></a>一些常用的文本对象</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">文本对象</th>
-<th style="text-align:center">选区区域</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">a)或ab</td>
-<td style="text-align:center">一对圆括号</td>
-</tr>
-<tr>
-<td style="text-align:center">i)或ib</td>
-<td style="text-align:center">圆括号内部</td>
-</tr>
-<tr>
-<td style="text-align:center">a}或aB</td>
-<td style="text-align:center">一对花括号</td>
-</tr>
-<tr>
-<td style="text-align:center">i)或iB</td>
-<td style="text-align:center">花括号内部</td>
-</tr>
-<tr>
-<td style="text-align:center">at</td>
-<td style="text-align:center">一对XML标签</td>
-</tr>
-<tr>
-<td style="text-align:center">it</td>
-<td style="text-align:center">XML标签内部</td>
-</tr>
-<tr>
-<td style="text-align:center">aw</td>
-<td style="text-align:center">当前单词及一个空格</td>
-</tr>
-<tr>
-<td style="text-align:center">iw</td>
-<td style="text-align:center">当前单词</td>
-</tr>
-<tr>
-<td style="text-align:center">aW</td>
-<td style="text-align:center">当前字串及一个空格</td>
-</tr>
-<tr>
-<td style="text-align:center">iW</td>
-<td style="text-align:center">当前字串</td>
-</tr>
-<tr>
-<td style="text-align:center">as</td>
-<td style="text-align:center">当前句子及一个空格</td>
-</tr>
-<tr>
-<td style="text-align:center">is</td>
-<td style="text-align:center">当前句子</td>
-</tr>
-<tr>
-<td style="text-align:center">ap</td>
-<td style="text-align:center">当前段落及一个空行</td>
-</tr>
-<tr>
-<td style="text-align:center">ip</td>
-<td style="text-align:center">当前段落</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/Vim插件之vim-surround/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="微醺">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="微醺的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/09/Vim插件之vim-surround/" itemprop="url">Vim插件之vim-surround</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-09T00:10:16Z">
-                2019-06-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vim插件/" itemprop="url" rel="index">
-                    <span itemprop="name">vim插件</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="surround"><a href="#surround" class="headerlink" title="surround"></a>surround</h1><p>“vim-surround，tpope大神的一款life-changed插件.”<br>“直到发现了大牛Tim Pope的surround的插件，一切都迎刃而解了。（对的就是那个写了pathogen的家伙，他一个人就贡献了30多个vim插件，仰视之）”</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>项目的地址是：<a href="https://github.com/tpope/vim-surround" target="_blank" rel="noopener">https://github.com/tpope/vim-surround</a><br>如果采用Vundle安装的话，就需要在vim配置文件中添加：<br>Plugin ‘tpope/vim-surround’<br>再执行：PluginInstall 就好了。</p>
-<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>快速给词加环绕符号,例如单引号/双引号/括号/成对标签等</p>
-<p>注意：(括号, 左括号会加空格, 右括号不会)</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/09/Vim插件之vim-surround/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/vim插件之Abolish插件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="微醺">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="微醺的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/09/vim插件之Abolish插件/" itemprop="url">vim插件之Abolish</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-08T17:58:55Z">
-                2019-06-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vim插件/" itemprop="url" rel="index">
-                    <span itemprop="name">vim插件</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="1-abolish-vim插件"><a href="#1-abolish-vim插件" class="headerlink" title="1.abolish.vim插件"></a>1.abolish.vim插件</h1><p>abolish.vim插件可以快速替换字符串。</p>
-<h3 id="安装方法1"><a href="#安装方法1" class="headerlink" title="安装方法1"></a>安装方法1</h3><p>1) vim官网下载<a href="https://www.vim.org/scripts/script.php?script_id=1545" target="_blank" rel="noopener">abolish.vim插件</a><br>2) 解压到.vim目录下即可。<br>3) 或是解压abolish.zip后将doc下的abolish.txt拷贝到.vim/doc下,abolish.vim拷贝到.vim/plugin下。</p>
-<h3 id="安装方法2"><a href="#安装方法2" class="headerlink" title="安装方法2"></a>安装方法2</h3><p>通过vim的vundle插件管理来安装的,编辑~/.vimrc中的配置<br>Bundle ‘tpope/vim-abolish’<br>然后保存.vimrc, 在vim中:BundleInstall,即可安装完成。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/09/vim插件之Abolish插件/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1833,7 +1862,7 @@ typedef    long  time_t
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1844,7 +1873,7 @@ typedef    long  time_t
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1855,7 +1884,7 @@ typedef    long  time_t
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

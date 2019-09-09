@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux,pthread,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="微醺的博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Linux线程基础—-线程同步与互斥1.同步的概念1.1 同步概念所谓同步,即同时起步,协调一致.不同的对象,对”同步”的理解方式不同. 如: 设备同步是指两个设备之间规定一个共同的时间参考; 数据库同步,是指让两个或多个数据库保持一致,或者按需要部分保持一致; 文件同步,是指让两个或多个文件夹里的文件保持一致等等.而编程中,通信中所说的同步与生活中大家印象中的同步略有差异.”同”是指协同,协助,">
+<meta name="keywords" content="linux,pthread">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-线程同步和互斥">
+<meta property="og:url" content="http://yoursite.com/2019/08/18/Linux-线程同步和互斥/index.html">
+<meta property="og:site_name" content="微醺的博客">
+<meta property="og:description" content="Linux线程基础—-线程同步与互斥1.同步的概念1.1 同步概念所谓同步,即同时起步,协调一致.不同的对象,对”同步”的理解方式不同. 如: 设备同步是指两个设备之间规定一个共同的时间参考; 数据库同步,是指让两个或多个数据库保持一致,或者按需要部分保持一致; 文件同步,是指让两个或多个文件夹里的文件保持一致等等.而编程中,通信中所说的同步与生活中大家印象中的同步略有差异.”同”是指协同,协助,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-09T11:50:21.955Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-线程同步和互斥">
+<meta name="twitter:description" content="Linux线程基础—-线程同步与互斥1.同步的概念1.1 同步概念所谓同步,即同时起步,协调一致.不同的对象,对”同步”的理解方式不同. 如: 设备同步是指两个设备之间规定一个共同的时间参考; 数据库同步,是指让两个或多个数据库保持一致,或者按需要部分保持一致; 文件同步,是指让两个或多个文件夹里的文件保持一致等等.而编程中,通信中所说的同步与生活中大家印象中的同步略有差异.”同”是指协同,协助,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/18/Linux-线程同步和互斥/">
+
+
+
+
+
+  <title>Linux-线程同步和互斥 | 微醺的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">微醺的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/Linux-线程同步和互斥/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux-线程同步和互斥</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T14:41:58+08:00">
+                2019-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux多线程编程/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux多线程编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Linux线程基础—-线程同步与互斥"><a href="#Linux线程基础—-线程同步与互斥" class="headerlink" title="Linux线程基础—-线程同步与互斥"></a>Linux线程基础—-线程同步与互斥</h2><h1 id="1-同步的概念"><a href="#1-同步的概念" class="headerlink" title="1.同步的概念"></a>1.同步的概念</h1><h2 id="1-1-同步概念"><a href="#1-1-同步概念" class="headerlink" title="1.1 同步概念"></a>1.1 同步概念</h2><p>所谓同步,即同时起步,协调一致.不同的对象,对”同步”的理解方式不同. 如: 设备同步是指两个设备之间规定一个共同的时间参考; 数据库同步,是指让两个或多个数据库保持一致,或者按需要部分保持一致; 文件同步,是指让两个或多个文件夹里的文件保持一致等等.而编程中,通信中所说的同步与生活中大家印象中的同步略有差异.”同”是指协同,协助,互助配合.主旨在协同步调,按预定顺序先后次序运行.</p>
+<h2 id="1-2-数据混乱的原因"><a href="#1-2-数据混乱的原因" class="headerlink" title="1.2 数据混乱的原因"></a>1.2 数据混乱的原因</h2><pre><code>1) 资源共享(独享资源不存在此问题)
+2) 调度随机, 即意味着数据访问会出现竞争
+3) 线程间缺乏必要的同步机制.
+</code></pre><p>前面两点不能改变,欲提高效率,传递数据资源必须共享.只要共享资源就一定会出现竞争.只要存在竞争关系，数据就很容易出现混乱。所以只能从第三点着手解决。使多个线程在访问共享资源的时候，出现互斥。</p>
+<h1 id="3-线程同步"><a href="#3-线程同步" class="headerlink" title="3.线程同步"></a>3.线程同步</h1><pre><code>是一个宏观概念,在微观上包含线程的相互排斥和线程先后执行的约束问题.
+同步即协同步调,按预定的先后次序运行.
+线程同步指一个线程发出某一功能调用时, 在没有得到结果前,该调用不返回. 同时其他线程为保证数据一致性,不能调用该功能. 如: A任务的运行依赖于B任务产生的数据.
+目的: 是为了避免数据混乱,解决与时间有关的错误.实际上,不仅线程间需要同步,进程间,信号间等都需要同步. 因此, 所有&quot;多个控制流,共同操作一个共享资源&quot;的情况,都需要同步.
+
+解决同步办法: 条件变量, 线程信号量
+</code></pre><h1 id="2-线程同步手段"><a href="#2-线程同步手段" class="headerlink" title="2.线程同步手段"></a>2.线程同步手段</h1><h2 id="线程互斥"><a href="#线程互斥" class="headerlink" title="线程互斥"></a>线程互斥</h2><p>线程执行的相互排斥.<br>散步在不同任务之间的若干程序片断，当某个任务运行其中一个程序片段时，其它任务就不能运行它们之中的任一程序片段，只能等到该任务运行完这个程序片段后才可以运行。最基本的场景就是：一个公共资源同一时刻只能被一个进程或线程使用，多个进程或线程不能同时使用公共资源。<br>解决互斥方式: 互斥锁,读写锁,线程信号量</p>
+<h3 id="互斥锁创建和销毁"><a href="#互斥锁创建和销毁" class="headerlink" title="互斥锁创建和销毁"></a>互斥锁创建和销毁</h3><pre><code>#include &lt;pthread.h&gt;
+//创建快速互斥锁.
+pthread_mutex_t fastmutex = PTHREAD_MUTEX_INITIALIZER;
+//创建递归互斥锁.
+pthread_mutex_t recmutex = PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP;
+//创建检错互斥锁.
+pthread_mutex_t errchkmutex = PTHREAD_ERRORCHECK_MUTEX_INITIALIZER_NP;
+
+//创建并初始化一个互斥锁
+int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *mutexattr);
+//功能:上锁
+int pthread_mutex_lock(pthread_mutex_t *mutex);
+//功能:尝试上锁,拿不到锁返回出错信息
+int pthread_mutex_trylock(pthread_mutex_t *mutex);
+//功能:释放锁
+int pthread_mutex_unlock(pthread_mutex_t *mutex); ///成功返回0,出错返回出错码
+
+//销毁互斥锁
+int pthread_mutex_destroy(pthread_mutex_t *mutex);
+
+参数: 
+mutex: 互斥锁.
+mutexattr: 互斥锁创建方式.
+</code></pre><h4 id="互斥锁属性创建和销毁"><a href="#互斥锁属性创建和销毁" class="headerlink" title="互斥锁属性创建和销毁"></a>互斥锁属性创建和销毁</h4><pre><code>#include &lt;pthread.h&gt;
+int pthread_mutexattr_init(pthread_mutexattr_t *attr);    
+int pthread_mutexattr_destroy(pthread_mutexattr_t *attr);
+
+互斥锁类型操纵
+[mutex_lock_type.c]
+int pthread_mutexattr_settype(pthread_mutexattr_t *attr, int kind);
+int pthread_mutexattr_gettype(const pthread_mutexattr_t *attr, int *kind);
+attr: 互斥锁属性;
+type: 互斥锁类型: 
+    1)标准互斥锁: PTHREAD_MUTEX_NORMAL, 第一次上锁成功,第二次上锁会阻塞.
+    2)递归互斥锁: PTHREAD_MUTEX_RECURSIVE, 第一次上锁成功,第二次上锁还是成功,内部计数.
+    3)检错互斥锁: PTHREAD_MUTEX_ERRORCHECK, 第一次上锁成功,第二次上锁出错.
+    4)默认互斥锁: PTHREAD_MUTEX_DEFAULT, 同标准互斥锁.
+
+互斥锁进程共享属性操作
+int pthread_mutexattr_getpshared(const pthread_mutexattr_t *restric attr, int *restrict pshared);
+int pthread_mutexattr_setpshared(pthread_mutexattr_t *attr, int pshared);
+返回: 成功返回0, 出错返回错误编号.
+线程共享属性:
+    PTHREAD_PROCESS_PRIVATE, 默认情况, 锁只能用于一个进程内部的两个线程进行互斥.
+    PTHREAD_PROCESS_SHARED, 锁可以用于两个不同进程中的线程进行互斥.
+缺点: 线程使用互斥锁缺乏读并发性.
+</code></pre><h4 id="线程互斥-读写锁"><a href="#线程互斥-读写锁" class="headerlink" title="线程互斥 - 读写锁"></a>线程互斥 - 读写锁</h4><pre><code>当读操作较多,写操作较少时,可使用读写锁提高线程读并发性.
+(1) 创建和销毁
+#include &lt;pthread.h&gt; 
+int pthread_rwlock_init(pthread_rwlock_t *rwlock, const pthread_rwlockattr_t *restrict attr);   
+int pthread_rwlock_destroy(pthrad_rwlock_t *rwlock);
+pthread_rwlock_t rwlock = PTHREAD_RWLOCK_INITIALIZER;
+
+(2) 读写锁加锁和解锁
+int pthread_rwlock_rdlock(pthread_rwlock_t *rwlock); //加读锁
+int pthread_rwlock_tryrdlock(pthread_rwlock_t *rwlock);
+int pthread_rwlock_wrlock(pthread_rwlock_t *rwlock); //写加锁
+int pthread_rwlock_unlock(phtread_rwlock_t *rwlock); //释放锁
+成功返回0, 失败返回错误编号.
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/pthread/" rel="tag"># pthread</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/12/Linux-线程属性初始化-销毁-设置和获得分离属性/" rel="next" title="Linux 线程属性初始化,销毁,设置和获得分离属性">
+                <i class="fa fa-chevron-left"></i> Linux 线程属性初始化,销毁,设置和获得分离属性
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/31/vim-的拼写检查器/" rel="prev" title="vim 的拼写检查器">
+                vim 的拼写检查器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">微醺</p>
+              <p class="site-description motion-element" itemprop="description">科技浪潮中的一个小兵</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Soldier-Sen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:soldierhansen@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.google.com" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zh-cn.facebook.com/" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux线程基础—-线程同步与互斥"><span class="nav-number">1.</span> <span class="nav-text">Linux线程基础—-线程同步与互斥</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#1-同步的概念"><span class="nav-number"></span> <span class="nav-text">1.同步的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-同步概念"><span class="nav-number">1.</span> <span class="nav-text">1.1 同步概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-数据混乱的原因"><span class="nav-number">2.</span> <span class="nav-text">1.2 数据混乱的原因</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-线程同步"><span class="nav-number"></span> <span class="nav-text">3.线程同步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-线程同步手段"><span class="nav-number"></span> <span class="nav-text">2.线程同步手段</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程互斥"><span class="nav-number">1.</span> <span class="nav-text">线程互斥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#互斥锁创建和销毁"><span class="nav-number">1.1.</span> <span class="nav-text">互斥锁创建和销毁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#互斥锁属性创建和销毁"><span class="nav-number">1.1.1.</span> <span class="nav-text">互斥锁属性创建和销毁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程互斥-读写锁"><span class="nav-number">1.1.2.</span> <span class="nav-text">线程互斥 - 读写锁</span></a></li></ol></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">微醺</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

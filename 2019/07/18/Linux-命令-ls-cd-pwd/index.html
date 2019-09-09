@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="ls,cd,pwd,命令,">
 
 
 
@@ -81,18 +81,19 @@
 
 
 
-<meta name="description" content="1 Linux pwd —— 打印当前工作目录名pwd - print name of current/working directoryLinux pwd命令用于显示工作目录。执行pwd指令可立刻得知目前所在的工作目录的绝对路径名称。">
+<meta name="description" content="1 Linux pwd —— 打印当前工作目录名  pwd - print name of current/working directory  Linux pwd命令用于显示工作目录。  执行pwd指令可立刻得知目前所在的工作目录的绝对路径名称。">
+<meta name="keywords" content="ls,cd,pwd,命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 命令 -- ls cd pwd">
 <meta property="og:url" content="http://yoursite.com/2019/07/18/Linux-命令-ls-cd-pwd/index.html">
 <meta property="og:site_name" content="微醺的博客">
-<meta property="og:description" content="1 Linux pwd —— 打印当前工作目录名pwd - print name of current/working directoryLinux pwd命令用于显示工作目录。执行pwd指令可立刻得知目前所在的工作目录的绝对路径名称。">
+<meta property="og:description" content="1 Linux pwd —— 打印当前工作目录名  pwd - print name of current/working directory  Linux pwd命令用于显示工作目录。  执行pwd指令可立刻得知目前所在的工作目录的绝对路径名称。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/Soldier-Sen/Soldier-Sen.github.io/raw/hexo/picture/command/ls_l.png">
-<meta property="og:updated_time" content="2019-07-17T18:03:25.828Z">
+<meta property="og:updated_time" content="2019-08-25T04:56:33.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 命令 -- ls cd pwd">
-<meta name="twitter:description" content="1 Linux pwd —— 打印当前工作目录名pwd - print name of current/working directoryLinux pwd命令用于显示工作目录。执行pwd指令可立刻得知目前所在的工作目录的绝对路径名称。">
+<meta name="twitter:description" content="1 Linux pwd —— 打印当前工作目录名  pwd - print name of current/working directory  Linux pwd命令用于显示工作目录。  执行pwd指令可立刻得知目前所在的工作目录的绝对路径名称。">
 <meta name="twitter:image" content="https://github.com/Soldier-Sen/Soldier-Sen.github.io/raw/hexo/picture/command/ls_l.png">
 
 
@@ -326,6 +327,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux-命令/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux 命令</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -353,17 +376,17 @@
       
 
       
-        <h1 id="1-Linux-pwd-——-打印当前工作目录名"><a href="#1-Linux-pwd-——-打印当前工作目录名" class="headerlink" title="1 Linux pwd —— 打印当前工作目录名"></a>1 Linux pwd —— 打印当前工作目录名</h1><p>pwd - print name of current/working directory<br>Linux pwd命令用于显示工作目录。<br>执行pwd指令可立刻得知目前所在的工作目录的绝对路径名称。<br><a id="more"></a></p>
+        <h1 id="1-Linux-pwd-——-打印当前工作目录名"><a href="#1-Linux-pwd-——-打印当前工作目录名" class="headerlink" title="1 Linux pwd —— 打印当前工作目录名"></a>1 Linux pwd —— 打印当前工作目录名</h1><p>  pwd - print name of current/working directory<br>  Linux pwd命令用于显示工作目录。<br>  执行pwd指令可立刻得知目前所在的工作目录的绝对路径名称。<br><a id="more"></a></p>
 <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pwd: pwd [-LP]</span><br><span class="line">    打印当前工作目录的名字。</span><br><span class="line">    </span><br><span class="line">    选项：</span><br><span class="line">      -L	打印 $PWD 变量的值，如果它包含了当前的工作目录</span><br><span class="line">      -P	打印当前的物理路径，不带有任何的符号链接</span><br><span class="line">    </span><br><span class="line">    默认情况下，`pwd&apos; 的行为和带 `-L&apos; 选项一致</span><br><span class="line">    </span><br><span class="line">    退出状态：</span><br><span class="line">    除非使用了无效选项或者当前目录不可读，否则返回状态为0。</span><br></pre></td></tr></table></figure>
 <h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># pwd</span><br><span class="line">/home/hhs/opt/Soldier-Sen.github.io</span><br></pre></td></tr></table></figure>
 <h1 id="2-Linux-cd-——-更改目录"><a href="#2-Linux-cd-——-更改目录" class="headerlink" title="2 Linux cd —— 更改目录"></a>2 Linux cd —— 更改目录</h1><p>Linux cd命令用于切换当前工作目录至 dirName(目录参数)。<br>其中 dirName 表示法可为绝对路径或相对路径。若目录名称省略，则变换至使用者的 home 目录 (也就是刚 login 时所在的目录)。<br>另外，”~” 也表示为 home 目录 的意思，”.” 则是表示目前所在的目录，”..” 则表示目前目录位置的上一层目录。</p>
 <p>绝对路径:是以根目录(” / “)为起点的完整路径,以你所要到的目录为终点.<br>相对路径:是你当前的目录(” . “)为起点的路径,以你所要到的目录为终点. </p>
 <h2 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd [dirName]</span><br></pre></td></tr></table></figure>
 <p>dirName：要切换的目标目录</p>
-<h2 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h2><p>跳到/usr/bin目录: <code>cd /usr/bin</code><br>跳到自己的home目录: <code>cd ～</code><br>跳到当前目录的上一层: <code>cd ..</code><br>跳到当前目录的上上一层: <code>cd ../..</code><br>跳回到之前的目录: <code>cd -</code></p>
+<h2 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">跳到/usr/bin目录: `cd /usr/bin`</span><br><span class="line">跳到自己的home目录: `cd ～`</span><br><span class="line">跳到当前目录的上一层: `cd ..`</span><br><span class="line">跳到当前目录的上上一层: `cd ../..`</span><br><span class="line">跳回到之前的目录: `cd -`</span><br></pre></td></tr></table></figure>
 <h1 id="3-Linux-ls-——-列出目录内容"><a href="#3-Linux-ls-——-列出目录内容" class="headerlink" title="3 Linux ls —— 列出目录内容"></a>3 Linux ls —— 列出目录内容</h1><p>Linux ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。</p>
 <h2 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h2><pre><code>ls [-alrtAFR] [name...]
-</code></pre><h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>-a 显示所有文件及目录 (ls内定将文件名或目录名称开头为”.”的视为隐藏档，不会列出)<br>-b 把文件名中不可输出的字符用反斜杠加字符编号(就象在C语言里一样)的形式列出。<br>-c 输出文件的 i 节点的修改时间，并以此排序。<br>-d 将目录象文件一样显示，而不是显示其下的文件。<br>-f -U 对输出的文件不排序。<br>-i 输出文件的 i 节点的索引信息。<br>-k 以 k 字节的形式表示文件的大小。<br>-l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出<br>-m 横向输出文件名，并以“，”作分格符。<br>-n 用数字的 UID,GID 代替名称。<br>-u 以文件上次被访问的时间排序。<br>-x 按列输出，横向排序。<br>-C 按列输出，纵向排序。<br>-G 输出文件的组的信息。<br>-L 列出链接文件名而不是链接到的文件。<br>-o 显示文件的除组信息外的详细信息。<br>-F 在每个文件名后附上一个字符以说明该文件的类型，“*”表示可执行的普通文件；“/”表示目录；“@”示符号链接；“|”表示FIFOs；“=”表示套接字(sockets)。<br>-r 将文件以相反次序显示(原定依英文字母次序)<br>-t 将文件依建立时间之先后次序列出<br>-A 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录)<br>-N 不限制文件长度。<br>-Q 把输出的文件名用双引号括起来。<br>-S 以文件大小排序。<br>-R 若目录下有文件，则以下之文件亦皆依序列出<br>-X 以文件的扩展名(最后一个 . 后的字符)排序。</p>
+</code></pre><h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">-a 显示所有文件及目录 (ls内定将文件名或目录名称开头为&quot;.&quot;的视为隐藏档，不会列出)</span><br><span class="line">-b 把文件名中不可输出的字符用反斜杠加字符编号(就象在C语言里一样)的形式列出。</span><br><span class="line">-c 输出文件的 i 节点的修改时间，并以此排序。</span><br><span class="line">-d 将目录象文件一样显示，而不是显示其下的文件。</span><br><span class="line">-f -U 对输出的文件不排序。</span><br><span class="line">-i 输出文件的 i 节点的索引信息。</span><br><span class="line">-k 以 k 字节的形式表示文件的大小。</span><br><span class="line">-l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出</span><br><span class="line">-m 横向输出文件名，并以“，”作分格符。</span><br><span class="line">-n 用数字的 UID,GID 代替名称。</span><br><span class="line">-u 以文件上次被访问的时间排序。</span><br><span class="line">-x 按列输出，横向排序。</span><br><span class="line">-C 按列输出，纵向排序。</span><br><span class="line">-G 输出文件的组的信息。</span><br><span class="line">-L 列出链接文件名而不是链接到的文件。</span><br><span class="line">-o 显示文件的除组信息外的详细信息。</span><br><span class="line">-F 在每个文件名后附上一个字符以说明该文件的类型，“*”表示可执行的普通文件；“/”表示目录；“@”示符号链接；“|”表示FIFOs；“=”表示套接字(sockets)。</span><br><span class="line">-r 将文件以相反次序显示(原定依英文字母次序)</span><br><span class="line">-t 将文件依建立时间之先后次序列出</span><br><span class="line">-A 同 -a ，但不列出 &quot;.&quot; (目前目录) 及 &quot;..&quot; (父目录)</span><br><span class="line">-N 不限制文件长度。</span><br><span class="line">-Q 把输出的文件名用双引号括起来。</span><br><span class="line">-S 以文件大小排序。</span><br><span class="line">-R 若目录下有文件，则以下之文件亦皆依序列出</span><br><span class="line">-X 以文件的扩展名(最后一个 . 后的字符)排序。</span><br></pre></td></tr></table></figure>
 <h2 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h2><p><img src="https://github.com/Soldier-Sen/Soldier-Sen.github.io/raw/hexo/picture/command/ls_l.png" alt="图片ls -l"><br>ls -m<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_config.yml, db.json, debug.log, node_modules, package.json, picture, public，scaffolds, source,themes</span><br></pre></td></tr></table></figure></p>
 <p>ls -F<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_config.yml  debug.log      package.json  public/     source/</span><br><span class="line">db.json      node_modules/  picture/      scaffolds/  themes/</span><br></pre></td></tr></table></figure></p>
 <p>ls -i<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2103593 _config.yml  2103582 debug.log     2103588 package.json  3804283 public     3148925 source</span><br><span class="line">2097664 db.json      3802635 node_modules  3803114 picture       3148921 scaffolds  3148929 themes</span><br></pre></td></tr></table></figure></p>
@@ -384,6 +407,18 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ls/" rel="tag"># ls</a>
+          
+            <a href="/tags/cd/" rel="tag"># cd</a>
+          
+            <a href="/tags/pwd/" rel="tag"># pwd</a>
+          
+            <a href="/tags/命令/" rel="tag"># 命令</a>
+          
+        </div>
+      
 
       
       
@@ -402,6 +437,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/29/python/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -478,7 +517,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -489,7 +528,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -500,7 +539,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

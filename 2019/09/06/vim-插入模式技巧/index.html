@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vim,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="微醺的博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="插入模式只专注于做一件事, 那就是输入文字.1 插入模式中及时更正错误如果在插入模式下输入错误时,正常可以用退格键删除错误文本.它会如我们所愿的删除光标前的字符.另外我们还可以使用下面一些组合键:    按键操作 用途     &amp;lt;C-h&amp;gt;  删除前一个字符   &amp;lt;C-w&amp;gt; 删除前一个单词   &amp;lt;C-u&amp;gt; 删除至行首    这些命令不是插入模式所独有的，甚至也不是 Vim 所">
+<meta name="keywords" content="vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim - 插入模式技巧">
+<meta property="og:url" content="http://yoursite.com/2019/09/06/vim-插入模式技巧/index.html">
+<meta property="og:site_name" content="微醺的博客">
+<meta property="og:description" content="插入模式只专注于做一件事, 那就是输入文字.1 插入模式中及时更正错误如果在插入模式下输入错误时,正常可以用退格键删除错误文本.它会如我们所愿的删除光标前的字符.另外我们还可以使用下面一些组合键:    按键操作 用途     &amp;lt;C-h&amp;gt;  删除前一个字符   &amp;lt;C-w&amp;gt; 删除前一个单词   &amp;lt;C-u&amp;gt; 删除至行首    这些命令不是插入模式所独有的，甚至也不是 Vim 所">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-08T06:07:53.562Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vim - 插入模式技巧">
+<meta name="twitter:description" content="插入模式只专注于做一件事, 那就是输入文字.1 插入模式中及时更正错误如果在插入模式下输入错误时,正常可以用退格键删除错误文本.它会如我们所愿的删除光标前的字符.另外我们还可以使用下面一些组合键:    按键操作 用途     &amp;lt;C-h&amp;gt;  删除前一个字符   &amp;lt;C-w&amp;gt; 删除前一个单词   &amp;lt;C-u&amp;gt; 删除至行首    这些命令不是插入模式所独有的，甚至也不是 Vim 所">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/06/vim-插入模式技巧/">
+
+
+
+
+
+  <title>vim - 插入模式技巧 | 微醺的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">微醺的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/06/vim-插入模式技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="微醺">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微醺的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vim - 插入模式技巧</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-06T07:33:37+08:00">
+                2019-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vim技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">vim技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="插入模式只专注于做一件事-那就是输入文字"><a href="#插入模式只专注于做一件事-那就是输入文字" class="headerlink" title="插入模式只专注于做一件事, 那就是输入文字."></a>插入模式只专注于做一件事, 那就是输入文字.</h2><h1 id="1-插入模式中及时更正错误"><a href="#1-插入模式中及时更正错误" class="headerlink" title="1 插入模式中及时更正错误"></a>1 插入模式中及时更正错误</h1><p>如果在插入模式下输入错误时,正常可以用退格键删除错误文本.它会如我们所愿的删除光标前的字符.另外我们还可以使用下面一些组合键:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">按键操作</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;C-h&gt; <c-h></c-h></td>
+<td style="text-align:center">删除前一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;C-w></td>
+<td style="text-align:center">删除前一个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;C-u></td>
+<td style="text-align:center">删除至行首</td>
+</tr>
+</tbody>
+</table>
+<p>这些命令不是插入模式所独有的，甚至也不是 Vim 所独有的，在 Vim 的命令行模式中，以及在 bash shell 中，也可以使用它们。</p>
+<h1 id="2-返回普通模式"><a href="#2-返回普通模式" class="headerlink" title="2 返回普通模式"></a>2 返回普通模式</h1><p>切换回普通模式的经典方式是使用 <esc> 键， 但在许多键盘上这个键的距离可能有点远。作为替代，我们也可以用 &lt;C-[&gt; ，它的效果与 <esc> 完全相同.<br>详情可参见: h i_CTRL-[</esc></esc></p>
+<p>图:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">按键操作</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;Esc></td>
+<td style="text-align:center">返回普通模式</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;C-[></td>
+<td style="text-align:center">删除前一个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;C-o></td>
+<td style="text-align:center">切换到插入-普通模式</td>
+</tr>
+</tbody>
+</table>
+<p>刚开始使用 vim 时可能会觉得不断地切换模式比较烦, 但是使用一段时间后就会慢慢上手了.</p>
+<h2 id="2-1-插入-普通模式"><a href="#2-1-插入-普通模式" class="headerlink" title="2.1 插入 - 普通模式"></a>2.1 插入 - 普通模式</h2><p>插入-普通模式是普通模式的一个特例，它能让我们执行一次普遍模式命令。在此模式中，我们可以执行一个普通模式命令，执行完后，马上就又返回到插入模式。要从插入模式切换到插入-普通模式，可以按 &lt;C-o><br>参见: i_CTRL-O</p>
+<p>例如, 当我们正在窗口的顶行或是底行时, 想看到更多的上下文, 在普通模式我们可以 zz 重绘窗口并把当前行显示在窗口的正中间. 所以我们可以使用命令: <code>&lt;C-o&gt;zz</code> 这样可以不受中断的继续打字.</p>
+<h1 id="3-不离开插入模式-粘贴寄存器中的文本"><a href="#3-不离开插入模式-粘贴寄存器中的文本" class="headerlink" title="3 不离开插入模式, 粘贴寄存器中的文本"></a>3 不离开插入模式, 粘贴寄存器中的文本</h1><p>Vim 的复制和粘贴操作一般都在普通模式中执行，不过有时我们也许想不离开插入模式，就能往文档里粘贴文本。</p>
+<p>在插入模式中, 按&lt;C-r>{register}把寄存器中的内容插入到文件中. 其中register是我们想要插入的寄存器的名字. (参见: h i_CTRL-R). 在插入模式中，可以用<c-r>{register} 命令很方便地粘贴几个单词。可是如果寄存器中包含了大量的文本， 你也许会发现屏幕的更新有些轻微的延时。 这是因为 Vim在插入寄存器内的文本时，其插入方式就如同这些文本是由键盘上一个个输进来的。因此，如果 ‘textwidth’ 或者‘autoindent’ 选项被激活了的话，那么最终就可能会出现不必要的换行或额外的缩进。&lt;C-r>&lt;C-p>{register} 命令则会更智能一些，它会按原义插入寄存器内的文本. </c-r></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">重新映射大小写转换键(Caps Lock)</span><br><span class="line">------------------------------------------</span><br></pre></td></tr></table></figure>
+<h1 id="4-使用表达式寄存器做运算"><a href="#4-使用表达式寄存器做运算" class="headerlink" title="4 使用表达式寄存器做运算"></a>4 使用表达式寄存器做运算</h1><p>表达式寄存器允许我们做一些运算，并把运算结果直接插入到文档中。</p>
+<p>大部分的 Vim寄存器中保存的都是文本, 不过表达式寄存器则是个另类, 它可以用来执行一段 Vim 脚本, 并返回其结果.</p>
+<p>我们可以用 = 符号指明使用表达式寄存器。在插入模式中，输入 &lt;C-r>= 就可以访问这一寄存器。这条命令会在屏幕的下方显示一个提示符，我们可以在其后输入要执行的表达式。输入表达式后敲一下 &lt;CR>， Vim 就会把执行的结果插入到文档的当前位置了。<br>示例文本:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6 chairs, each costing $35, totals $</span><br></pre></td></tr></table></figure></p>
+<p>当光标处于当前行时, 可以输入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A  </span><br><span class="line">&lt;C-r&gt;=6*35&lt;CR&gt;</span><br></pre></td></tr></table></figure></p>
+<p>||–&gt;&gt; A 将光标移到行尾并进入插入模式<br>||–&gt;&gt; 调用表达式寄存器, 并返回6*35的计算结果到光标当前位置.</p>
+<p>当然, 表达式寄存器不仅仅可以用来做运算, 还有其他更高级的应用. </p>
+<h1 id="5-用字符编码插入非常用字符"><a href="#5-用字符编码插入非常用字符" class="headerlink" title="5 用字符编码插入非常用字符"></a>5 用字符编码插入非常用字符</h1><h1 id="6-用二和字母插入非常用字符"><a href="#6-用二和字母插入非常用字符" class="headerlink" title="6 用二和字母插入非常用字符"></a>6 用二和字母插入非常用字符</h1><h1 id="7-用替换模式替换已有文本"><a href="#7-用替换模式替换已有文本" class="headerlink" title="7 用替换模式替换已有文本"></a>7 用替换模式替换已有文本</h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vim/" rel="tag"># vim</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/31/vim-的拼写检查器/" rel="next" title="vim 的拼写检查器">
+                <i class="fa fa-chevron-left"></i> vim 的拼写检查器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">微醺</p>
+              <p class="site-description motion-element" itemprop="description">科技浪潮中的一个小兵</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Soldier-Sen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:soldierhansen@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.google.com" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zh-cn.facebook.com/" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入模式只专注于做一件事-那就是输入文字"><span class="nav-number">1.</span> <span class="nav-text">插入模式只专注于做一件事, 那就是输入文字.</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#1-插入模式中及时更正错误"><span class="nav-number"></span> <span class="nav-text">1 插入模式中及时更正错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-返回普通模式"><span class="nav-number"></span> <span class="nav-text">2 返回普通模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-插入-普通模式"><span class="nav-number">1.</span> <span class="nav-text">2.1 插入 - 普通模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-不离开插入模式-粘贴寄存器中的文本"><span class="nav-number"></span> <span class="nav-text">3 不离开插入模式, 粘贴寄存器中的文本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-使用表达式寄存器做运算"><span class="nav-number"></span> <span class="nav-text">4 使用表达式寄存器做运算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-用字符编码插入非常用字符"><span class="nav-number"></span> <span class="nav-text">5 用字符编码插入非常用字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-用二和字母插入非常用字符"><span class="nav-number"></span> <span class="nav-text">6 用二和字母插入非常用字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-用替换模式替换已有文本"><span class="nav-number"></span> <span class="nav-text">7 用替换模式替换已有文本</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">微醺</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
